@@ -18,6 +18,12 @@
             </intent-filter>
             </activity>
         <activity android:name=".MenuPrincipalActivity"></activity>
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".MenuHamburguesaActivity" />
+        <activity android:name=".MenuPizzaActivity" />
+        <activity android:name=".MenuHotDogActivity" />
+        <activity android:name=".MenuPolloActivity" />
+        <activity android:name=".MenuExtrasActivity"></activity>
     </application>
 
 </manifest>
