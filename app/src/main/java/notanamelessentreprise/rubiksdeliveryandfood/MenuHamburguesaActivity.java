@@ -1,13 +1,79 @@
 package notanamelessentreprise.rubiksdeliveryandfood;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class MenuHamburguesaActivity extends AppCompatActivity {
+
+
+    private Context context;
+
+    private ImageButton btnimgAnadirPedidoH;
+
+    // Paso 1
+    private DatabaseReference databaseRef;
+
+    private ListView productsListView;
+    private ProductosAdapter productosAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_hamburguesa);
+
+        context = this;
+
+        btnimgAnadirPedidoH = (ImageButton) findViewById(R.id.btnimgAnadirPedidoH);
+
+        ArrayList<Productos> products = new ArrayList<>();
+        productosAdapter = new ProductosAdapter(context, products);
+
+        productsListView = (ListView) findViewById(R.id.lstHamburguesas);
+        productsListView.setAdapter(productosAdapter);
+
+
+        // Firebase
+
+        // Paso 2
+        databaseRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference productosRef = databaseRef.child("hamburguesas"); //nombre de la rama
+
+        productosRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                productosAdapter.clear();
+                for (DataSnapshot msgSnapshot : snapshot.getChildren()) {
+                    Productos msg = msgSnapshot.getValue(Productos.class);
+                    productosAdapter.add(msg);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(getApplicationContext(), R.string.cancel_process, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnimgAnadirPedidoH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, MenuActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
