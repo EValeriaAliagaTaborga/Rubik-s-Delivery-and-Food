@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     //Toast.makeText(getApplicationContext(), "Usuario: " + campo_usuario + ", Password: " + campo_password, Toast.LENGTH_SHORT).show();
 
-                    Intent a = new Intent(context, MenuActivity.class);
+                    Intent a = new Intent(context, MenuPrincipalActivity.class);
                     startActivity(a);
                     finish();
 

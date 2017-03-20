@@ -43,6 +43,7 @@ xmlns:tools="http://schemas.android.com/tools"
                         android:fontFamily="cursive"
                         android:text="Bienvenido a "
                         android:textColor="@android:color/holo_red_dark"
+                        android:gravity="center"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
