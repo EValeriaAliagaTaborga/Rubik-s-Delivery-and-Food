@@ -10,6 +10,7 @@ public class GroupInfo {
     private String name;
     private ArrayList<ChildInfo> list = new ArrayList<ChildInfo>();
 
+
     public String getName() {
         return name;
     }
