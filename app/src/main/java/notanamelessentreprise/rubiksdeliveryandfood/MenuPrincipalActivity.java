@@ -72,7 +72,8 @@ public class MenuPrincipalActivity extends AppCompatActivity {
         lyvContactenos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(context, ContactenosActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -93,7 +94,8 @@ public class MenuPrincipalActivity extends AppCompatActivity {
         lyvPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(context, PerfilActivity.class);
+                startActivity(intent);
             }
         });
     }
