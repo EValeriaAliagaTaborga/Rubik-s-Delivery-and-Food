@@ -27,7 +27,9 @@
         <activity android:name=".MenuPolloActivity" />
         <activity android:name=".MenuExtrasActivity" />
         <activity android:name=".VistaDeDetalleActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ContactenosActivity" />
+        <activity android:name=".PerfilActivity"></activity>
     </application>
 
 </manifest>
