@@ -29,13 +29,15 @@
         <activity android:name=".MenuPolloActivity" />
         <activity android:name=".MenuExtrasActivity" />
         <activity android:name=".VistaDeDetalleActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity"
+            android:label="Login"/>
         <activity android:name=".ContactenosActivity" />
         <activity android:name=".PerfilActivity" />
         <activity android:name=".AppBarPrueba" />
         <activity android:name=".ArmaloHamburguesaActivity" />
         <activity android:name=".ArmaloPizzaActivity" />
-        <activity android:name=".ArmaloHotDogActivity"></activity>
+        <activity android:name=".ArmaloHotDogActivity" />
+        <activity android:name=".RegistroActivity"></activity>
     </application>
 
 </manifest>
