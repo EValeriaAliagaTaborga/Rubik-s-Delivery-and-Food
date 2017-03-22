@@ -31,7 +31,11 @@
         <activity android:name=".VistaDeDetalleActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ContactenosActivity" />
-        <activity android:name=".PerfilActivity"></activity>
+        <activity android:name=".PerfilActivity" />
+        <activity android:name=".AppBarPrueba" />
+        <activity android:name=".ArmaloHamburguesaActivity" />
+        <activity android:name=".ArmaloPizzaActivity" />
+        <activity android:name=".ArmaloHotDogActivity"></activity>
     </application>
 
 </manifest>

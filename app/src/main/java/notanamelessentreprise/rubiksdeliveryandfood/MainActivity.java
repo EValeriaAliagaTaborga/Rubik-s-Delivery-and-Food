@@ -16,11 +16,17 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView imgLogo;
     private Button btnSignIn;
-    private static boolean conCuenta = false;
+
+    public static boolean conCuenta = false;
 
     public static boolean getConCuenta() {
         return conCuenta;
     }
+
+    public static void setConCuenta(boolean nuevoConCuenta) {
+        conCuenta = nuevoConCuenta;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

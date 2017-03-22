@@ -26,13 +26,13 @@ public class ProductosAdapter extends ArrayAdapter<Productos> {
 
         ImageView imgFoto = (ImageView) convertView.findViewById(R.id.imgFotoProducto);
         TextView lblNombre = (TextView) convertView.findViewById(R.id.lblNombreProducto);
-      //  TextView descripcionTextView = (TextView) convertView.findViewById(R.id.lblDes);
+      //  TextView descripcionTextView = (TextView) convertView.findViewById(R.id.lblDescripcionProducto);
         TextView lblPrecio = (TextView) convertView.findViewById(R.id.lblPrecioProducto);
 
         Productos p = getItem(position);
 
         lblNombre.setText(p.getNombre());
-      //  descripcionTextView.setText(p.getDescripcion());
+       // descripcionTextView.setText(p.getDescripcion());
         lblPrecio.setText(p.getPrecio() + "");
 
         Glide.with(getContext())

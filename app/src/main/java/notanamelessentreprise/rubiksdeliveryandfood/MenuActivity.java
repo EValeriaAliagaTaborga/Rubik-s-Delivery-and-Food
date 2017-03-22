@@ -44,7 +44,7 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
+        
         context = this;
 
         SliderLayout sliderShow = (SliderLayout) findViewById(R.id.slider);
@@ -68,10 +68,11 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onSliderClick(BaseSliderView baseSliderView) {
                 Toast.makeText(context, "Una serie que la Vale A. no ve :v", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ArmaloHamburguesaActivity.class);
+                startActivity(intent);
             }
         });
         sliderShow.addSlider(textSliderView);
-
 
 
         //Slide con daimajia 2
@@ -83,11 +84,26 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onSliderClick(BaseSliderView baseSliderView) {
                 Toast.makeText(context, "El husbando 2D de Vale A. xD", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ArmaloPizzaActivity.class);
+                startActivity(intent);
             }
         });
         sliderShow.addSlider(textSliderView2);
 
-
+        //Slide con daimajia 3
+        TextSliderView textSliderView3 = new TextSliderView(this);
+        textSliderView3
+                .description("JJ2")
+                .image("https://68.media.tumblr.com/2abdbf9df59501afec40948d673e5bd8/tumblr_oi7q6mvIjl1v0ltm0o1_1280.jpg");
+        textSliderView3.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+            @Override
+            public void onSliderClick(BaseSliderView baseSliderView) {
+                Toast.makeText(context, "El husbando 2D de Vale A. xD x2", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ArmaloHotDogActivity.class);
+                startActivity(intent);
+            }
+        });
+        sliderShow.addSlider(textSliderView3);
 
         Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
                 "/btnham_zpss2i2xyad.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgHamburguesa);
@@ -104,6 +120,7 @@ public class MenuActivity extends AppCompatActivity {
         lyhHamburguesa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(context, MenuHamburguesaActivity.class);
                 startActivity(intent);
             }

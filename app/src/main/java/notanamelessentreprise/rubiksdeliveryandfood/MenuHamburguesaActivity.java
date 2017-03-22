@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -73,6 +74,26 @@ public class MenuHamburguesaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(context, MenuActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        productsListView.setClickable(true);
+        productsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> array, View vista, int posicion, long id) {
+
+                // Log.i("Click", "click en el elemento" + posicion + "de la lista");
+//                TextView texto = (TextView) vista.findViewById(android.R.id.text1);
+                //              String producto = texto.getText().toString();
+                //Log.e("Item seleccionado", producto);
+
+                Productos prod = (Productos)productsListView.getItemAtPosition(posicion);
+
+                Intent intent = new Intent(context, VistaDeDetalleActivity.class);
+                String[] datosProducto = new String[] {prod.getNombre(), String.valueOf(prod.getPrecio()),prod.getDescripcion(),prod.getFotoUrl()};
+                // Toast.makeText(context, nombreProd + String.valueOf(precioProd)+fotoProd, Toast.LENGTH_SHORT).show();
+                intent.putExtra("datos_producto", datosProducto);
+                startActivity(intent);
+
             }
         });
     }
