@@ -14,7 +14,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.squareup.picasso.Picasso;
+
+//import static notanamelessentreprise.rubiksdeliveryandfood.R.id.sliderLayout;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -28,10 +34,10 @@ public class MenuActivity extends AppCompatActivity {
     private ImageView imgHotDog;
     private ImageView imgPollo;
     private ImageView imgExtras;
-    ViewPager viewPager;
-
-
+    //ViewPager viewPager;
     private Context context;
+    private SliderLayout SliderLayout;
+
 
     //hola c: j
     @Override
@@ -41,33 +47,58 @@ public class MenuActivity extends AppCompatActivity {
 
         context = this;
 
-        viewPager = (ViewPager)findViewById(R.id.viewPager);
-        lyhHamburguesa =(LinearLayout) findViewById(R.id.lyhHamburguesa);
-        lyhPizza =(LinearLayout) findViewById(R.id.lyhPizza);
-        lyhHotDog =(LinearLayout) findViewById(R.id.lyhHotDog);
-        lyhPollo =(LinearLayout) findViewById(R.id.lyhPollo);
-        lyhExtras =(LinearLayout) findViewById(R.id.lyhExtras);
+        SliderLayout sliderShow = (SliderLayout) findViewById(R.id.slider);
+        lyhHamburguesa = (LinearLayout) findViewById(R.id.lyhHamburguesa);
+        lyhPizza = (LinearLayout) findViewById(R.id.lyhPizza);
+        lyhHotDog = (LinearLayout) findViewById(R.id.lyhHotDog);
+        lyhPollo = (LinearLayout) findViewById(R.id.lyhPollo);
+        lyhExtras = (LinearLayout) findViewById(R.id.lyhExtras);
         imgHamburguesa = (ImageView) findViewById(R.id.imgHamburguesa);
         imgPizza = (ImageView) findViewById(R.id.imgPizza);
         imgHotDog = (ImageView) findViewById(R.id.imgHotDog);
         imgPollo = (ImageView) findViewById(R.id.imgPollo);
         imgExtras = (ImageView) findViewById(R.id.imgExtras);
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
+        //Slide con daimajia
+        TextSliderView textSliderView = new TextSliderView(this);
+        textSliderView
+                .description("Game of Thrones")
+                .image("http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg");
+        textSliderView.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+            @Override
+            public void onSliderClick(BaseSliderView baseSliderView) {
+                Toast.makeText(context, "Una serie que la Vale A. no ve :v", Toast.LENGTH_SHORT).show();
+            }
+        });
+        sliderShow.addSlider(textSliderView);
 
-        viewPager.setAdapter(viewPagerAdapter);
 
-        //Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
-        //        "/btnham_zpss2i2xyad.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgHamburguesa);
-        //Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
-        //        "/btnpizza_zpsshpdbgwm.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgPizza);
-        //Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
-        //        "/btnhotdog_zpsk1mbupua.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgHotDog);
-        //Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
-        //        "/btnpollo_zpskviqlidb.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgPollo);
-        //Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
-        //        "/btnextras_zpseca2wzwu.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgExtras);
 
+        //Slide con daimajia 2
+        TextSliderView textSliderView2 = new TextSliderView(this);
+        textSliderView2
+                .description("JJ")
+                .image("https://68.media.tumblr.com/2abdbf9df59501afec40948d673e5bd8/tumblr_oi7q6mvIjl1v0ltm0o1_1280.jpg");
+        textSliderView2.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+            @Override
+            public void onSliderClick(BaseSliderView baseSliderView) {
+                Toast.makeText(context, "El husbando 2D de Vale A. xD", Toast.LENGTH_SHORT).show();
+            }
+        });
+        sliderShow.addSlider(textSliderView2);
+
+
+
+        Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
+                "/btnham_zpss2i2xyad.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgHamburguesa);
+        Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
+                "/btnpizza_zpsshpdbgwm.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgPizza);
+        Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
+                "/btnhotdog_zpsk1mbupua.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgHotDog);
+        Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
+                "/btnpollo_zpskviqlidb.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgPollo);
+        Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
+                "/btnextras_zpseca2wzwu.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgExtras);
 
 
         lyhHamburguesa.setOnClickListener(new View.OnClickListener() {
@@ -110,15 +141,21 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        viewPager.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v)
-            {
-                Toast.makeText(getApplicationContext(), "Notificación Toast", Toast.LENGTH_LONG);
-            }
-        });
+
+        //SLIDE CON VIEWPAGER
+        //viewPager = (ViewPager)findViewById(R.id.viewPager);
+        //ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
+        //viewPager.setAdapter(viewPagerAdapter);
+        //viewPager.setOnClickListener(new View.OnClickListener() {
+        //    public void onClick(View v)
+        //    {
+        //        Toast.makeText(getApplicationContext(), "Notificación Toast", Toast.LENGTH_LONG);
+        //    }
+        //});
 
 
     }
-
-
 }
+
+
+
