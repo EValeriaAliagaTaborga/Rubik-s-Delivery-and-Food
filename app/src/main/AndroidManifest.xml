@@ -37,6 +37,7 @@
         <activity android:name=".ArmaloHamburguesaActivity" />
         <activity android:name=".ArmaloPizzaActivity" />
         <activity android:name=".ArmaloHotDogActivity" />
+        <activity android:name=".VerOrdenActivity"></activity>
         <activity android:name=".RegistroActivity"></activity>
     </application>
 

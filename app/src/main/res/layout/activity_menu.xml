@@ -55,8 +55,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_above="@+id/toolbar3">
+        android:layout_above="@+id/tlbVerOrden">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -206,12 +205,24 @@
     </ScrollView>
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar3"
+        android:id="@+id/tlbVerOrden"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/colorBlue"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
+
+    <TextView
+        android:id="@+id/lblPrecioTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:textSize="24sp"
+        android:textColor="@color/colorWhite"
+        android:layout_marginEnd="18dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/scrollView2"
+        android:layout_marginBottom="9dp" />
 
 </RelativeLayout>

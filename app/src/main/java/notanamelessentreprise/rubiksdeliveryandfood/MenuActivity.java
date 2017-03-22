@@ -7,11 +7,13 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.slider.library.SliderLayout;
@@ -34,12 +36,23 @@ public class MenuActivity extends AppCompatActivity {
     private ImageView imgHotDog;
     private ImageView imgPollo;
     private ImageView imgExtras;
+    private Toolbar tlbVerOrden;
+    private TextView lblPrecioTotal;
+
     //ViewPager viewPager;
     private Context context;
     private SliderLayout SliderLayout;
 
+    public static double precio = 0.00;
 
-    //hola c: j
+    public static double getPrecio() {
+        return precio;
+    }
+
+    public static void setPrecio(double precioN){
+        precio = precioN;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +71,8 @@ public class MenuActivity extends AppCompatActivity {
         imgHotDog = (ImageView) findViewById(R.id.imgHotDog);
         imgPollo = (ImageView) findViewById(R.id.imgPollo);
         imgExtras = (ImageView) findViewById(R.id.imgExtras);
+        tlbVerOrden = (Toolbar) findViewById(R.id.tlbVerOrden);
+        lblPrecioTotal = (TextView) findViewById(R.id.lblPrecioTotal);
 
         //Slide con daimajia
         TextSliderView textSliderView = new TextSliderView(this);
@@ -105,6 +120,7 @@ public class MenuActivity extends AppCompatActivity {
         });
         sliderShow.addSlider(textSliderView3);
 
+        //imagenes de cada division de alimentos
         Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
                 "/btnham_zpss2i2xyad.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgHamburguesa);
         Picasso.with(context).load("http://i1278.photobucket.com/albums/y518/TaurineSGH/Programacion%20III" +
@@ -158,6 +174,15 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        tlbVerOrden.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+                Intent intent = new Intent(context, VerOrdenActivity.class);
+                startActivity(intent);
+           }
+        });
+
+        lblPrecioTotal.setText(Double.toString(precio));
 
         //SLIDE CON VIEWPAGER
         //viewPager = (ViewPager)findViewById(R.id.viewPager);
