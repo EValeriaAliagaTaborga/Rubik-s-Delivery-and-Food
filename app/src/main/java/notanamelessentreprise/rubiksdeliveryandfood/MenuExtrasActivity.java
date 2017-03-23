@@ -63,7 +63,7 @@ public class MenuExtrasActivity extends AppCompatActivity {
                 /*    //display it or do something with it
                     Toast.makeText(getBaseContext(), " Clicked on :: " + headerInfo.getName()
                             + "/" + detailInfo.getName(), Toast.LENGTH_LONG).show();*/
-                   lista.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) lista);
+                   //lista.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) lista);
                     return false;
                 }
             });
