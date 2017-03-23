@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 public class ArmaloPizzaActivity extends AppCompatActivity {
 
+    //esperar db
     private ImageView imgToppings;
     private ImageView imgCondimentos;
     private ImageView imgCarnePizza;
