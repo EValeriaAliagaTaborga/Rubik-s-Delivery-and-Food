@@ -6,6 +6,7 @@ public class Productos {
     private float precio;
     private String descripcion;
     private String fotoUrl;
+    private boolean checked = false;
 
     public Productos() {
         // Firebase necesita este contructor
@@ -42,4 +43,10 @@ public class Productos {
     public void setFotoUrl(String fotoUrl) {
         this.fotoUrl = fotoUrl;
     }
-}
+
+    public boolean getChecked() {return checked;}
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+   }
