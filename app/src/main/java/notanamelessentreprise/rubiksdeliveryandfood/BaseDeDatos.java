@@ -1,5 +1,6 @@
 package notanamelessentreprise.rubiksdeliveryandfood;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -24,7 +25,16 @@ public class BaseDeDatos extends SQLiteOpenHelper
         db.execSQL("create table rubik (id integer(12) AUTO_INCREMENT not null PRIMARY KEY, nombre varchar(100), " +
                 "nombreusuario varchar(100), celulartelefono integer(8), domicilio varchar(100), email varchar(100)," +
                 " contrasenia varchar(100), repcontrasenia varchar(100), nombrefactura varchar(100), nit integer(100));");
+        //TODO agregar tabla productos Vale
+        //db.execSQL("create table productos (......)");
+
         Log.d("Todos los tablas: ", "Se crearon las tablas");
+
+        //TODO agregar productos al menos 5 Todos
+        /*ContentValues producto1=new ContentValues();
+        producto1.put("nombre","Hamburgues de pinia");
+        db.insert("productos",null,producto1);*/
+
     }
 
     //Método utilizado cuando se actualiza la base de datos

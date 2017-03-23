@@ -52,7 +52,7 @@ public class RegistroActivity extends AppCompatActivity {
 
         btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                ContentValues values = new ContentValues();
+                ContentValues values = new ContentValues(); //Columnas
                 values.put("nombre",txtNombre.getText().toString());
                 values.put("nombreusuario",txtUsuario.getText().toString());
                 values.put("celulartelefono fijo",txtCelular.getText().toString());
@@ -64,15 +64,7 @@ public class RegistroActivity extends AppCompatActivity {
                 values.put("nit",txtNIT.getText().toString());
 
 
-                db.insert("nombre", null, values);
-                db.insert("nombreusuario", null, values);
-                db.insert("celulartelefono", null, values);
-                db.insert("domicilio", null, values);
-                db.insert("email", null, values);
-                db.insert("contrasenia", null, values);
-                db.insert("repcontrasenia", null, values);
-                db.insert("nombrefactura", null, values);
-                db.insert("nit", null, values);
+                db.insert("rubik", null, values); // Tabla rubik -> columnas
                 db.close();
 
                 Toast.makeText(getApplicationContext(), "Registro Agregado", Toast.LENGTH_SHORT).show();
