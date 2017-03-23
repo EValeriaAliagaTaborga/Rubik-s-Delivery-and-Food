@@ -44,6 +44,7 @@ public class MenuActivity extends AppCompatActivity {
     private SliderLayout SliderLayout;
 
     public static double precio = 0.00;
+    public static double precioTotalTotal = 0.00;
 
     public static double getPrecio() {
         return precio;
@@ -133,6 +134,7 @@ public class MenuActivity extends AppCompatActivity {
                 "/btnextras_zpseca2wzwu.png").placeholder(R.drawable.rubik2).resize(100,100).into(imgExtras);
 
 
+
         lyhHamburguesa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -182,7 +184,7 @@ public class MenuActivity extends AppCompatActivity {
            }
         });
 
-        lblPrecioTotal.setText(Double.toString(precio));
+        lblPrecioTotal.setText(Double.toString(precio) + "0");
 
         //SLIDE CON VIEWPAGER
         //viewPager = (ViewPager)findViewById(R.id.viewPager);
@@ -198,6 +200,3 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 }
-
-
-

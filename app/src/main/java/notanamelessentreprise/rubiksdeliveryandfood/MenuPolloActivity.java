@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +26,8 @@ public class MenuPolloActivity extends AppCompatActivity {
     private Context context;
 
     private ImageButton btnimgAnadirPedidoPo;
+    private Toolbar tlbVerOrdenPo;
+    private TextView lblPrecioTotalPo;
 
     // Paso 1
     private DatabaseReference databaseRef;
@@ -31,6 +35,7 @@ public class MenuPolloActivity extends AppCompatActivity {
     private ListView productsListView;
     private ProductosAdapter productosAdapter;
 
+    private double precioTotalPo = 0.00;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +45,15 @@ public class MenuPolloActivity extends AppCompatActivity {
         context = this;
 
         btnimgAnadirPedidoPo = (ImageButton) findViewById(R.id.btnimgAnadirPedidoPo);
+        tlbVerOrdenPo = (Toolbar) findViewById(R.id.tlbVerOrdenPo);
+        lblPrecioTotalPo = (TextView) findViewById(R.id.lblPrecioTotalPo);
+
+
+        precioTotalPo = MenuActivity.precio;
+        lblPrecioTotalPo.setText(Double.toString(precioTotalPo)+"0");
 
         ArrayList<Productos> products = new ArrayList<>();
-        productosAdapter = new ProductosAdapter(context, products);
+        productosAdapter = new ProductosAdapter(context, products,lblPrecioTotalPo);
 
         productsListView = (ListView) findViewById(R.id.lstPollos);
         productsListView.setAdapter(productosAdapter);
@@ -74,6 +85,9 @@ public class MenuPolloActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, MenuActivity.class);
+                precioTotalPo = Double.parseDouble(lblPrecioTotalPo.getText().toString());
+                MenuActivity.setPrecio(precioTotalPo);
+                lblPrecioTotalPo.setText(Double.toString(MenuActivity.getPrecio())+"0");
                 startActivity(intent);
             }
         });
@@ -96,6 +110,14 @@ public class MenuPolloActivity extends AppCompatActivity {
                 intent.putExtra("datos_producto", datosProducto);
                 startActivity(intent);
 
+            }
+        });
+
+        tlbVerOrdenPo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, VerOrdenActivity.class);
+                startActivity(intent);
             }
         });
     }
