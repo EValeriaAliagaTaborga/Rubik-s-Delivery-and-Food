@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ExpandableListView
+    <!--<ExpandableListView
         android:id="@+id/simpleExpandableListView"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
@@ -12,6 +12,18 @@
         android:childDivider="#0f0"
         android:dividerHeight="1dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_margin="20dp"/>-->
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linear_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 </RelativeLayout>

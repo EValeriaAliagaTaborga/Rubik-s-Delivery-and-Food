@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent b=getIntent();
        // usuario_registrado = (b.getStringArrayExtra("datos_de_cliente"))[1];
-        //password_registrado = (b.getStringArrayExtra("datos_de_cliente"))[6];
+       // password_registrado = (b.getStringArrayExtra("datos_de_cliente"))[6];
 
         btnLogin=(Button)findViewById(R.id.btnLogin);
         txtUsuario=(EditText)findViewById(R.id.txtUsuario);

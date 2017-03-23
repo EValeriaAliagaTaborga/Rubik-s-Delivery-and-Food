@@ -80,7 +80,8 @@ public class MenuPrincipalActivity extends AppCompatActivity {
         lyvCalculadora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(context, CalculadoraActivity.class);
+                startActivity(intent);
             }
         });
 
