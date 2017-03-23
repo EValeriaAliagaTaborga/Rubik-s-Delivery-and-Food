@@ -82,6 +82,6 @@
         android:layout_height="35dp"
         android:layout_gravity="center_vertical"
         android:padding="5dp"
-        app:srcCompat="@android:drawable/checkbox_off_background"
+        android:src="@android:drawable/checkbox_off_background"
         android:layout_weight="0.05" />
 </LinearLayout>
