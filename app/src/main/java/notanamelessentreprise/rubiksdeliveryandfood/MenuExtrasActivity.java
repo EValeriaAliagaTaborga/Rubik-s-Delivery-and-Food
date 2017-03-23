@@ -26,14 +26,13 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import notanamelessentreprise.rubiksdeliveryandfood.Productos1.SubCategoria;
-import notanamelessentreprise.rubiksdeliveryandfood.Productos1.SubCategoria1;
 import notanamelessentreprise.rubiksdeliveryandfood.Productos1.SubCategoria.ItemList;
 
 public class MenuExtrasActivity extends AppCompatActivity {
     private ArrayList<Productos1>pProductosArrayList;
     private ArrayList<SubCategoria>pSubItemArrayList;
     private ArrayList<SubCategoria>pSubItemArrayList2;
-    private ArrayList<SubCategoria1>pSubItemArrayList3;
+    private ArrayList<SubCategoria>pSubItemArrayList3;
     private LinearLayout mLinearListView;
     boolean esPrimerClick =false;
     boolean esSegundoClick = false;
@@ -51,26 +50,41 @@ public class MenuExtrasActivity extends AppCompatActivity {
             setContentView(R.layout.activity_menu_extras);
             mLinearListView=(LinearLayout)findViewById(R.id.linear_listview);
 
+            //Papas fritas
             ArrayList<ItemList> mItemListArray = new ArrayList<ItemList>();
-            mItemListArray.add(new ItemList("pequenio","5"));
-            mItemListArray.add(new ItemList("mediano","7"));
-            mItemListArray.add(new ItemList("brande","10"));
+            mItemListArray.add(new ItemList("Pequeño","Bs. 5"));
+            mItemListArray.add(new ItemList("Mediano","Bs. 7"));
+            mItemListArray.add(new ItemList("Grande","Bs. 10"));
 
+            //Arroz
             ArrayList<ItemList> mItemListArray0 = new ArrayList<ItemList>();
-            mItemListArray0.add(new ItemList("pequenio","10"));
-            mItemListArray0.add(new ItemList("brande","15"));
+            mItemListArray0.add(new ItemList("Pequeño","Bs. 10"));
+            mItemListArray0.add(new ItemList("Grande","Bs. 15"));
 
+            //Soda CocaCola y esos
             ArrayList<ItemList> mItemListArray2 = new ArrayList<ItemList>();
-            mItemListArray2.add(new ItemList("pequenio","5"));
-            mItemListArray2.add(new ItemList("mediano","7.5"));
-            mItemListArray2.add(new ItemList("brande","10"));
+            mItemListArray2.add(new ItemList("Pequeño","Bs. 5"));
+            mItemListArray2.add(new ItemList("Mediano","Bs. 7.5"));
+            mItemListArray2.add(new ItemList("Grande","Bs. 10"));
 
+            //Tradicional
+            ArrayList<ItemList> mItemListArray03 = new ArrayList<>();
+            mItemListArray03.add(new ItemList("Mayonesa","Bs. 0.5"));
+            mItemListArray03.add(new ItemList("Ketchup","Bs. 0.5"));
+            mItemListArray03.add(new ItemList("Mostaza","Bs. 0.5"));
+            mItemListArray03.add(new ItemList("Llajua Tradicional","Bs. 1"));
+
+            //Extravagante
             ArrayList<ItemList> mItemListArray3 = new ArrayList<>();
-            mItemListArray3.add(new ItemList("",""));
+            mItemListArray3.add(new ItemList("Salsa Golf","Bs. 1"));
+            mItemListArray3.add(new ItemList("Salsa Barbacoa","Bs. 3"));
+            mItemListArray3.add(new ItemList("Miel y Mostaza","Bs. 3"));
+            mItemListArray3.add(new ItemList("Hot Mustard","Bs. 3"));
+            mItemListArray3.add(new ItemList("Salsa Picante","Bs. 3"));
 
             pSubItemArrayList = new ArrayList<SubCategoria>();
             pSubItemArrayList2 = new ArrayList<SubCategoria>();
-            //pSubItemArrayList3 = new ArrayList<SubCategoria>();
+            pSubItemArrayList3 = new ArrayList<SubCategoria>();
 
             pSubItemArrayList.add(new SubCategoria("Papas Fritas",mItemListArray));
             pSubItemArrayList.add(new SubCategoria("Arroz",mItemListArray0));
@@ -79,16 +93,14 @@ public class MenuExtrasActivity extends AppCompatActivity {
             pSubItemArrayList2.add(new SubCategoria("Fanta",mItemListArray2));
             pSubItemArrayList2.add(new SubCategoria("Sprite",mItemListArray2));
 
-            /*pSubItemArrayList3.add(new SubCategoria("mayonesa",mItemListArray3));
-            pSubItemArrayList3.add(new SubCategoria("ketchup",mItemListArray3));
-            pSubItemArrayList3.add(new SubCategoria("mostaza",mItemListArray3));
-            pSubItemArrayList3.add(new SubCategoria("salsa picante",mItemListArray3));
-            pSubItemArrayList3.add(new SubCategoria("salsa barbacoa",mItemListArray3));*/
+            pSubItemArrayList3.add(new SubCategoria("Tradicional",mItemListArray03));
+            pSubItemArrayList3.add(new SubCategoria("Extravagante",mItemListArray3));
+
 
             pProductosArrayList = new ArrayList<Productos1>();
             pProductosArrayList.add(new Productos1("Guarniciones",pSubItemArrayList));
             pProductosArrayList.add(new Productos1("Gaseosas",pSubItemArrayList2));
-          //  pProductosArrayList.add(new Productos1("Salsas",pSubItemArrayList));
+            pProductosArrayList.add(new Productos1("Salsas",pSubItemArrayList3));
 
             for (int i =0; i < pProductosArrayList.size(); i++){
                 LayoutInflater inflater = null;
