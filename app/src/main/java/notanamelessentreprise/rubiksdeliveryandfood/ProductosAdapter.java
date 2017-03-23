@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.Log;
@@ -70,14 +71,18 @@ public class ProductosAdapter extends ArrayAdapter<Productos> {
                     precioTotal -= p.getPrecio();
 //                    imgbtnCheck.setImageBitmap(BitmapFactory.decodeResource(Resources.getSystem(),android.R.drawable.checkbox_off_background));
                     VerOrdenActivity.listaDePedidos.remove(p);
+                  //  imgbtnCheck.setBackgroundColor(Color.GRAY);
                     p.setChecked(false);
+                    view.setBackgroundColor(Color.GRAY);
                 } else {
                     precioTotal += p.getPrecio();
 //                    imgbtnCheck.setImageBitmap(BitmapFactory.decodeResource(Resources.getSystem(), android.R.drawable.checkbox_on_background) );
                     VerOrdenActivity.listaDePedidos.add(p);
+                   // imgbtnN.setBackgroundColor(Color.CYAN);
                     p.setChecked(true);
+                    view.setBackgroundColor(Color.CYAN);
                 }
-                Log.i(TAG, "check en boton de "+p.getNombre()+" con checked "+p.getChecked());
+                Log.i(TAG, "check en boton de "+p.getNombre()+" con checked "+p.getChecked()+" en posicion "+position + imgbtnCheck.toString());
                 lblPrecioTotal.setText(Double.toString(precioTotal) +"0");
             }
         });
