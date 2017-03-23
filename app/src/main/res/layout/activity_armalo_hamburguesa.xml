@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/lyHorizontalPrincipal"
-    android:background="@drawable/backgroundlogo"
+    android:background="@drawable/backgroundarmalo"
     tools:context="notanamelessentreprise.rubiksdeliveryandfood.ArmaloHamburguesaActivity">
 
 
@@ -162,7 +162,7 @@
             android:layout_marginEnd="35dp"
             android:clickable="true"
             app:fabSize="mini"
-            app:srcCompat="@color/colorBlack" />
+            app:srcCompat="@drawable/rubik2" />
 
         <!--
         <AdapterViewFlipper

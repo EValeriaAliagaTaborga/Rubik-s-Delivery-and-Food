@@ -38,8 +38,10 @@
         <activity android:name=".ArmaloHamburguesaActivity" />
         <activity android:name=".ArmaloPizzaActivity" />
         <activity android:name=".ArmaloHotDogActivity" />
+        <activity android:name=".RegistroActivity"
+            android:label="Registro de Usuario"/>
         <activity android:name=".VerOrdenActivity"></activity>
-        <activity android:name=".RegistroActivity"></activity>
+
     </application>
 
 </manifest>

@@ -78,12 +78,12 @@ public class MenuActivity extends AppCompatActivity {
         //Slide con daimajia
         TextSliderView textSliderView = new TextSliderView(this);
         textSliderView
-                .description("Game of Thrones")
-                .image("http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg");
+                .description("Hamburguesas")
+                .image(R.drawable.armaloham);
         textSliderView.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
             @Override
             public void onSliderClick(BaseSliderView baseSliderView) {
-                Toast.makeText(context, "Una serie que la Vale A. no ve :v", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Con la más deliciosa carne y calidad.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, ArmaloHamburguesaActivity.class);
                 startActivity(intent);
             }
@@ -94,12 +94,12 @@ public class MenuActivity extends AppCompatActivity {
         //Slide con daimajia 2
         TextSliderView textSliderView2 = new TextSliderView(this);
         textSliderView2
-                .description("JJ")
-                .image("https://68.media.tumblr.com/2abdbf9df59501afec40948d673e5bd8/tumblr_oi7q6mvIjl1v0ltm0o1_1280.jpg");
+                .description("Pizza")
+                .image(R.drawable.armalopizza);
         textSliderView2.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
             @Override
             public void onSliderClick(BaseSliderView baseSliderView) {
-                Toast.makeText(context, "El husbando 2D de Vale A. xD", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "De sabor incomparable.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, ArmaloPizzaActivity.class);
                 startActivity(intent);
             }
@@ -109,12 +109,12 @@ public class MenuActivity extends AppCompatActivity {
         //Slide con daimajia 3
         TextSliderView textSliderView3 = new TextSliderView(this);
         textSliderView3
-                .description("JJ2")
-                .image("https://68.media.tumblr.com/2abdbf9df59501afec40948d673e5bd8/tumblr_oi7q6mvIjl1v0ltm0o1_1280.jpg");
+                .description("Hot Dog")
+                .image(R.drawable.armalohotdog);
         textSliderView3.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
             @Override
             public void onSliderClick(BaseSliderView baseSliderView) {
-                Toast.makeText(context, "El husbando 2D de Vale A. xD x2", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Como tu quieras, desde el pan hasta la salsa.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, ArmaloHotDogActivity.class);
                 startActivity(intent);
             }

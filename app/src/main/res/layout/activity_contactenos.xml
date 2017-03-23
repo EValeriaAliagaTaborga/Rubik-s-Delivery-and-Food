@@ -13,11 +13,12 @@
 
         <ImageView
             android:id="@+id/imgContactenos"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_width="284dp"
+            android:layout_height="50dp"
             android:layout_margin="10dp"
-            app:srcCompat="@android:drawable/presence_audio_busy" />
+            android:background="@drawable/LogoDefinitivo"
+            android:layout_weight="0.78"
+            android:layout_gravity="center"/>
 
         <ScrollView
             android:layout_width="match_parent"
