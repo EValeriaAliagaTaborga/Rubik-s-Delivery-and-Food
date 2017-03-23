@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,12 +26,17 @@ public class MenuHamburguesaActivity extends AppCompatActivity {
     private Context context;
 
     private ImageButton btnimgAnadirPedidoH;
+    private Toolbar tlbVerOrdenH;
+    private TextView lblPrecioTotalH;
+
 
     // Paso 1
     private DatabaseReference databaseRef;
 
     private ListView productsListView;
     private ProductosAdapter productosAdapter;
+
+    private double precioTotalH = 0.00;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +46,25 @@ public class MenuHamburguesaActivity extends AppCompatActivity {
         context = this;
 
         btnimgAnadirPedidoH = (ImageButton) findViewById(R.id.btnimgAnadirPedidoH);
+        tlbVerOrdenH = (Toolbar) findViewById(R.id.tlbVerOrdenH);
+        lblPrecioTotalH = (TextView) findViewById(R.id.lblPrecioTotalH);
+
+        precioTotalH = MenuActivity.precio;
+        lblPrecioTotalH.setText(Double.toString(precioTotalH)+"0");
+
 
         ArrayList<Productos> products = new ArrayList<>();
-        productosAdapter = new ProductosAdapter(context, products);
+        productosAdapter = new ProductosAdapter(context, products,lblPrecioTotalH);
 
         productsListView = (ListView) findViewById(R.id.lstHamburguesas);
         productsListView.setAdapter(productosAdapter);
 
+        productsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
 
         // Firebase
 
@@ -58,22 +77,25 @@ public class MenuHamburguesaActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 productosAdapter.clear();
                 for (DataSnapshot msgSnapshot : snapshot.getChildren()) {
-                    Productos msg = msgSnapshot.getValue(Productos.class);
-                    productosAdapter.add(msg);
-                }
+                Productos msg = msgSnapshot.getValue(Productos.class);
+                productosAdapter.add(msg);
             }
+        }
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                Toast.makeText(getApplicationContext(), R.string.cancel_process, Toast.LENGTH_SHORT).show();
-            }
-        });
+        @Override
+        public void onCancelled(DatabaseError error) {
+            Toast.makeText(getApplicationContext(), R.string.cancel_process, Toast.LENGTH_SHORT).show();
+        }
+    });
 
         btnimgAnadirPedidoH.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, MenuActivity.class);
-                startActivity(intent);
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(context, MenuActivity.class);
+            precioTotalH = Double.parseDouble(lblPrecioTotalH.getText().toString());
+            MenuActivity.setPrecio(precioTotalH);
+            lblPrecioTotalH.setText(Double.toString(MenuActivity.getPrecio())+"0");
+            startActivity(intent);
             }
         });
 
@@ -94,6 +116,14 @@ public class MenuHamburguesaActivity extends AppCompatActivity {
                 intent.putExtra("datos_producto", datosProducto);
                 startActivity(intent);
 
+            }
+        });
+
+        tlbVerOrdenH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, VerOrdenActivity.class);
+                startActivity(intent);
             }
         });
     }

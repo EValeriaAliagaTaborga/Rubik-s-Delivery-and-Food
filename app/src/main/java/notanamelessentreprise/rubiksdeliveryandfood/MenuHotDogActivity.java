@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +25,9 @@ public class MenuHotDogActivity extends AppCompatActivity {
     private Context context;
 
     private ImageButton btnimgAnadirPedidoHD;
+    private Toolbar tlbVerOrdenHD;
+    private TextView lblPrecioTotalHD;
+
 
     // Paso 1
     private DatabaseReference databaseRef;
@@ -30,6 +35,7 @@ public class MenuHotDogActivity extends AppCompatActivity {
     private ListView productsListView;
     private ProductosAdapter productosAdapter;
 
+    private double precioTotalHD = 0.00;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +45,16 @@ public class MenuHotDogActivity extends AppCompatActivity {
         context = this;
 
         btnimgAnadirPedidoHD = (ImageButton) findViewById(R.id.btnimgAnadirPedidoHD);
+        tlbVerOrdenHD = (Toolbar) findViewById(R.id.tlbVerOrdenHD);
+        lblPrecioTotalHD = (TextView) findViewById(R.id.lblPrecioTotalHD);
+
+
+        precioTotalHD = MenuActivity.precio;
+        lblPrecioTotalHD.setText(Double.toString(precioTotalHD)+"0");
+
 
         ArrayList<Productos> products = new ArrayList<>();
-        productosAdapter = new ProductosAdapter(context, products);
+        productosAdapter = new ProductosAdapter(context, products,lblPrecioTotalHD);
 
         productsListView = (ListView) findViewById(R.id.lstHotDogs);
         productsListView.setAdapter(productosAdapter);
@@ -74,6 +87,9 @@ public class MenuHotDogActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, MenuActivity.class);
+                precioTotalHD = Double.parseDouble(lblPrecioTotalHD.getText().toString());
+                MenuActivity.setPrecio(precioTotalHD);
+                lblPrecioTotalHD.setText(Double.toString(MenuActivity.getPrecio())+"0");
                 startActivity(intent);
             }
         });
@@ -95,6 +111,14 @@ public class MenuHotDogActivity extends AppCompatActivity {
                 intent.putExtra("datos_producto", datosProducto);
                 startActivity(intent);
 
+            }
+        });
+
+        tlbVerOrdenHD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, VerOrdenActivity.class);
+                startActivity(intent);
             }
         });
     }

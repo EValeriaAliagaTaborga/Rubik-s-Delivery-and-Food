@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:padding="16dp"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:descendantFocusability="blocksDescendants">
 
     <ImageView
         android:id="@+id/imgFotoProducto"
@@ -65,12 +67,21 @@
 
     </LinearLayout>
 
-    <!--
+<!--
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/checkboxProd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_gravity="center_vertical"/>
 -->
+
+    <ImageButton
+        android:id="@+id/imgbtnCheck"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_vertical"
+        android:padding="5dp"
+        android:src="@android:drawable/checkbox_off_background"
+        android:layout_weight="0.05" />
 </LinearLayout>

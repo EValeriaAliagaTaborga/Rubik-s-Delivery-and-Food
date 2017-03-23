@@ -211,7 +211,9 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorBlue"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:theme="?attr/actionBarTheme"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"/>
 
     <TextView
         android:id="@+id/lblPrecioTotal"
@@ -220,9 +222,21 @@
         android:text="0.00"
         android:textSize="24sp"
         android:textColor="@color/colorWhite"
-        android:layout_marginEnd="18dp"
+        android:layout_marginEnd="20dp"
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/scrollView2"
         android:layout_marginBottom="9dp" />
+
+    <TextView
+        android:id="@+id/lblVerOrden"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="Ver Orden"
+        android:textSize="28sp"
+        android:padding="2dp"
+        android:textColor="@color/colorWhite"
+        android:layout_alignStart="@+id/tlbVerOrden"
+        android:layout_alignBottom="@+id/lblPrecioTotal" />
 
 </RelativeLayout>

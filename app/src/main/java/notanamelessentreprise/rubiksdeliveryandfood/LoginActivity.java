@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent b=getIntent();
        // usuario_registrado = (b.getStringArrayExtra("datos_de_cliente"))[1];
-        //password_registrado = (b.getStringArrayExtra("datos_de_cliente"))[6];
+       // password_registrado = (b.getStringArrayExtra("datos_de_cliente"))[6];
 
         btnLogin=(Button)findViewById(R.id.btnLogin);
         txtUsuario=(EditText)findViewById(R.id.txtUsuario);
@@ -54,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                         || (campo_usuario.compareTo("Vale A") == 0 && campo_password.compareTo("vale05") == 0) || (campo_usuario.compareTo("Diego") == 0 && campo_password.compareTo("diego") == 0)
                         || (usuario_registrado.compareTo(campo_usuario) ==0 && password_registrado.compareTo(campo_password) == 0)) {*/
 
+              //TODO desde db.
                 if ((campo_usuario.compareTo("Rosa") == 0 && campo_password.compareTo("i3915") == 0) || (campo_usuario.compareTo("Vale S") == 0 && campo_password.compareTo("valexd") == 0)
                             || (campo_usuario.compareTo("Vale A") == 0 && campo_password.compareTo("vale05") == 0) || (campo_usuario.compareTo("Diego") == 0 && campo_password.compareTo("diego") == 0)) {
 

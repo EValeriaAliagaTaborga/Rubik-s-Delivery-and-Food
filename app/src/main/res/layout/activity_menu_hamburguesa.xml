@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="notanamelessentreprise.rubiksdeliveryandfood.MenuHamburguesaActivity">
 
-
+<!--
     <ImageButton
         android:id="@+id/btnimgAnadirPedidoH"
         android:layout_width="wrap_content"
@@ -18,14 +18,58 @@
         android:layout_marginBottom="30dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
-
+-->
     <ListView
         android:id="@+id/lstHamburguesas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="11dp"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/btnimgAnadirPedidoH" />
+        android:layout_above="@+id/tlbVerOrdenH" />
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tlbVerOrdenH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBlue"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"/>
 
+    <TextView
+        android:id="@+id/lblPrecioTotalH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:textSize="24sp"
+        android:textColor="@color/colorWhite"
+        android:layout_marginBottom="11dp"
+        android:layout_marginRight="7dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/btnimgAnadirPedidoH" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnimgAnadirPedidoH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@android:color/background_dark"
+        android:layout_above="@+id/tlbVerOrdenH"
+        android:layout_alignEnd="@+id/tlbVerOrdenH"
+        android:layout_marginEnd="13dp" />
+
+    <TextView
+        android:id="@+id/lblVerOrdenH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver Orden"
+        android:textSize="28sp"
+        android:padding="2dp"
+        android:textColor="@color/colorWhite"
+        android:layout_alignStart="@+id/tlbVerOrdenH"
+        android:layout_alignBottom="@+id/lblPrecioTotalH"
+        android:layout_marginStart="40dp" />
 </RelativeLayout>
