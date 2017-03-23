@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 public class ArmaloPizzaActivity extends AppCompatActivity {
 
+    //esperar db
     private ImageView imgToppings;
     private ImageView imgCondimentos;
     private ImageView imgCarnePizza;
@@ -334,8 +335,8 @@ public class ArmaloPizzaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, MenuActivity.class);
-            //    datosDePedido.add(0, Double.toString(precio));
-              //  intent.putExtra("datos_de_pedido", datosDePedido);
+                double precioTotal = MenuActivity.getPrecio()+precio;
+                MenuActivity.setPrecio(precioTotal);
                 startActivity(intent);
             }
 

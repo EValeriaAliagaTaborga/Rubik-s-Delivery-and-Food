@@ -2,14 +2,9 @@ package notanamelessentreprise.rubiksdeliveryandfood;
 
 import java.util.ArrayList;
 
-/**
- * Created by HP on 22/3/2017.
- */
-
 public class Productos1 {
     private String pNombre;
     private ArrayList<SubCategoria> mSubCategoriaList;
-    private ArrayList<SubCategoria1> mSubCategoriaList1;
 
     public Productos1(String pNombre, ArrayList<SubCategoria> mSubCategoriaList){
         super();
@@ -17,18 +12,13 @@ public class Productos1 {
         this.mSubCategoriaList = mSubCategoriaList;
     }
 
-    /*public Productos1(String pNombre, ArrayList<SubCategoria1> mSubCategoriaList1){
-        super();
-        this.pNombre = pNombre;
-        this.mSubCategoriaList1 = mSubCategoriaList1;
-    }*/
-
     public String getpNombre(){
         return pNombre;
     }
     public void setpNombre(String pNombre){
         this.pNombre = pNombre;
     }
+
     public ArrayList<SubCategoria>getmSubCategoriaList(){
 
         return mSubCategoriaList;
@@ -36,11 +26,6 @@ public class Productos1 {
     public void setmSubCategoriaList(ArrayList<SubCategoria> mSubCategoriaList){
         this.mSubCategoriaList = mSubCategoriaList;
     }
-    /*
-
-    public ArrayList<SubCategoria1> getSubCategoriaList1(){
-        return mSubCategoriaList1;
-    }*/
 
 
     public static class SubCategoria{
@@ -89,23 +74,6 @@ public class Productos1 {
             public void setItemPrecio(String itemPrecio){
                 this.itemPrecio = itemPrecio;
             }
-        }
-    }
-    public static class SubCategoria1{
-        private String pSubCategoriaNombre1;
-
-        public SubCategoria1(String pSubCategoriaNombre1){
-            super();
-            this.pSubCategoriaNombre1 = pSubCategoriaNombre1;
-        }
-
-        public String getpSubCategoriaNombre1(){
-
-            return pSubCategoriaNombre1;
-        }
-
-        public  void setpSubCategoriaNombre1 (String pSubCategoriaNombre1){
-            this.pSubCategoriaNombre1 = pSubCategoriaNombre1;
         }
     }
 }

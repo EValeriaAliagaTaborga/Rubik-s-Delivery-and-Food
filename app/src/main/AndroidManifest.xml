@@ -34,7 +34,6 @@
         <activity android:name=".ContactenosActivity" />
         <activity android:name=".PerfilActivity" />
         <activity android:name=".CalculadoraActivity"></activity>
-        <activity android:name=".AppBarPrueba" />
         <activity android:name=".ArmaloHamburguesaActivity" />
         <activity android:name=".ArmaloPizzaActivity" />
         <activity android:name=".ArmaloHotDogActivity" />
