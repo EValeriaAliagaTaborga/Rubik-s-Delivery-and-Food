@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.AdapterView;
 import android.widget.ExpandableListAdapter;
@@ -42,6 +43,8 @@ public class MenuExtrasActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_menu_extras);
             mLinearListView=(LinearLayout)findViewById(R.id.linear_listview);
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
             //Papas fritas
             ArrayList<ItemList> mItemListArray = new ArrayList<ItemList>();
@@ -185,4 +188,14 @@ public class MenuExtrasActivity extends AppCompatActivity {
                 mLinearListView.addView(mLinearView);
             }
         }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
