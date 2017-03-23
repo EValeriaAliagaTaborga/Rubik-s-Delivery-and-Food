@@ -36,13 +36,6 @@ public class MenuExtrasActivity extends AppCompatActivity {
     private LinearLayout mLinearListView;
     boolean esPrimerClick =false;
     boolean esSegundoClick = false;
-      /*  private LinkedHashMap<String, GroupInfo> subjects = new LinkedHashMap<String, GroupInfo>();
-        private ArrayList<GroupInfo> deptList = new ArrayList<GroupInfo>();
-
-        private CustomAdapter listAdapter;
-        private ExpandableListView simpleExpandableListView;
-
-        private ArrayList<String> listaDeTamanios = new ArrayList<String>();*/
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {

@@ -2,10 +2,6 @@ package notanamelessentreprise.rubiksdeliveryandfood;
 
 import java.util.ArrayList;
 
-/**
- * Created by HP on 22/3/2017.
- */
-
 public class Productos1 {
     private String pNombre;
     private ArrayList<SubCategoria> mSubCategoriaList;
