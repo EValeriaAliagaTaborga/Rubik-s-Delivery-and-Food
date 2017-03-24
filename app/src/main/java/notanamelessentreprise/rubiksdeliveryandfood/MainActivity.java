@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView imgLogo;
     private Button btnSignIn;
+    private CustomGifView gifview;
 
     public static boolean conCuenta = false;
 
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         imgLogo=(ImageView) findViewById(R.id.imgLogo);
         btnSignIn=(Button)findViewById(R.id.btnSignIn);
+        gifview = (CustomGifView)findViewById(R.id.gifview);
+
 
         imgLogo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        gifview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, LoginActivity.class);

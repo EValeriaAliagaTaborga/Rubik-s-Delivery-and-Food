@@ -24,6 +24,8 @@ import java.util.ArrayList;
 
 public class ArmaloHamburguesaActivity extends AppCompatActivity {
 
+    //H
+
     private ImageView imgPanSuperior;
     private ImageView imgCarneDeRes;
     private ImageView imgCarneDePollo;

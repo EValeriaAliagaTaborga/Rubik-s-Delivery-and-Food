@@ -7,15 +7,15 @@
     tools:context="notanamelessentreprise.rubiksdeliveryandfood.VerOrdenActivity">
 
     <!--lbl ocultar orden-->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/tlbCerrarVerOrden"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorBlue"
-            android:minHeight="?attr/actionBarSize"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:theme="?attr/actionBarTheme" />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tlbCerrarVerOrden"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        android:background="@color/colorAccent"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
 
         <ListView
             android:id="@+id/lstPedidos"
