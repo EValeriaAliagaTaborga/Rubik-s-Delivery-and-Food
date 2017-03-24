@@ -24,8 +24,8 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText txtNombreFactura;
     private EditText txtNIT;
     private Button btnRegistrarse;
-    private SQLiteDatabase db;
-    public static final int VERSION = 1;
+    //private SQLiteDatabase db;
+ //   public static final int VERSION = 1;
 
     Context context;
 
@@ -36,8 +36,8 @@ public class RegistroActivity extends AppCompatActivity {
 
         context = this;
 
-        BaseDeDatos crearBD = new BaseDeDatos(context,VERSION);
-        db = crearBD.getWritableDatabase();
+//        BaseDeDatos crearBD = new BaseDeDatos(context,VERSION);
+  //      SQLiteDatabase db = crearBD.getWritableDatabase();
 
         txtNombre = (EditText) findViewById(R.id.txtNombreyApellido);
         txtUsuario = (EditText) findViewById(R.id.txtNombreUsuario);
@@ -55,7 +55,7 @@ public class RegistroActivity extends AppCompatActivity {
                 ContentValues values = new ContentValues(); //Columnas
                 values.put("nombre",txtNombre.getText().toString());
                 values.put("nombreusuario",txtUsuario.getText().toString());
-                values.put("celulartelefono fijo",txtCelular.getText().toString());
+                values.put("celulartelefono",txtCelular.getText().toString());
                 values.put("domicilio",txtDomicilio.getText().toString());
                 values.put("email",txtEmail.getText().toString());
                 values.put("contrasenia",txtContrasenia.getText().toString());
@@ -64,19 +64,13 @@ public class RegistroActivity extends AppCompatActivity {
                 values.put("nit",txtNIT.getText().toString());
 
 
-                db.insert("rubik", null, values); // Tabla rubik -> columnas
-                db.close();
+              //  db.insert("rubik", null, values); // Tabla rubik -> columnas
+                //db.close();
 
                 Toast.makeText(getApplicationContext(), "Registro Agregado", Toast.LENGTH_SHORT).show();
                 reiniciarActividad();
             }
         });
-
-
-
-
-
-
 
     }
 

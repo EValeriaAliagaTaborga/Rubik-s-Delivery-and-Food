@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         context=this;
 
 
-        Intent b=getIntent();
+       // Intent b=getIntent();
        // usuario_registrado = (b.getStringArrayExtra("datos_de_cliente"))[1];
        // password_registrado = (b.getStringArrayExtra("datos_de_cliente"))[6];
 
@@ -45,8 +45,10 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+
                 String campo_usuario = txtUsuario.getText().toString();
                 String campo_password = txtPassword.getText().toString();
+
 
               /*  if ((campo_usuario.compareTo("Rosa") == 0 && campo_password.compareTo("i3915") == 0) || (campo_usuario.compareTo("Vale S") == 0 && campo_password.compareTo("valexd") == 0)
                         || (campo_usuario.compareTo("Vale A") == 0 && campo_password.compareTo("vale05") == 0) || (campo_usuario.compareTo("Diego") == 0 && campo_password.compareTo("diego") == 0)
@@ -82,10 +84,11 @@ public class LoginActivity extends AppCompatActivity {
                 //} else if (campo_usuario.matches("")){
                 //    Toast.makeText(getApplicationContext(), "Por favor, introduzca el nombre de Usuario.", Toast.LENGTH_SHORT.show());
                 //}
+                //}
             }
         });
     }
-
+    //de nuevo
 
 }
 
