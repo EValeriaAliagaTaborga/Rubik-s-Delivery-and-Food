@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +26,12 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText txtNombreFactura;
     private EditText txtNIT;
     private Button btnRegistrarse;
+
+    private static final int opcion1= 1;
+    private static final int opcion2 = 2;
+    private static final int opcion3 = 3;
+    private static final int opcion4 = 4;
+    private static final int opcion5 = 5;
     //private SQLiteDatabase db;
  //   public static final int VERSION = 1;
 
@@ -35,6 +43,8 @@ public class RegistroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
 
         context = this;
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 //        BaseDeDatos crearBD = new BaseDeDatos(context,VERSION);
   //      SQLiteDatabase db = crearBD.getWritableDatabase();
@@ -78,6 +88,27 @@ public class RegistroActivity extends AppCompatActivity {
         Intent a=new Intent(getApplicationContext(),MainActivity.class);
         finish();
         startActivity(a);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(Menu.NONE, opcion1, Menu.NONE, "Perfil");
+        menu.add(Menu.NONE, opcion2, Menu.NONE, "Informacion de la app");
+        menu.add(Menu.NONE, opcion3, Menu.NONE, "Historial");
+        menu.add(Menu.NONE, opcion4, Menu.NONE, "Log In");
+        menu.add(Menu.NONE, opcion5, Menu.NONE, "Cerrar Sesion");
+
+        return true;
     }
 
 }

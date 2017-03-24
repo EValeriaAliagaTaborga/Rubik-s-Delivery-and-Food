@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -40,6 +41,12 @@ public class MenuExtrasActivity extends AppCompatActivity {
     private ImageButton imgbtnAnadirPedidoE;
     private Toolbar tlbVerOrdenE;
     private TextView lblPrecioTotalE;
+
+    private static final int opcion1= 1;
+    private static final int opcion2 = 2;
+    private static final int opcion3 = 3;
+    private static final int opcion4 = 4;
+    private static final int opcion5 = 5;
 
     private double precioTotalE = MenuActivity.getPrecio();
 
@@ -263,5 +270,15 @@ public class MenuExtrasActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(Menu.NONE, opcion1, Menu.NONE, "Perfil");
+        menu.add(Menu.NONE, opcion2, Menu.NONE, "Informacion de la app");
+        menu.add(Menu.NONE, opcion3, Menu.NONE, "Historial");
+        menu.add(Menu.NONE, opcion4, Menu.NONE, "Log In");
+        menu.add(Menu.NONE, opcion5, Menu.NONE, "Cerrar Sesion");
+
+        return true;
     }
 }
