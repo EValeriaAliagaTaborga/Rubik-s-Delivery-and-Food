@@ -22,6 +22,8 @@ import static android.content.ContentValues.TAG;
 
 public class PedidosAdapter extends ArrayAdapter<Productos> {
 
+    //ddd
+
     public PedidosAdapter(Context context, List<Productos> objects) {
         super(context, 0, objects);
     }
