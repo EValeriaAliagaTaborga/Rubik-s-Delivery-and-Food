@@ -16,7 +16,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private EditText txtUsuario;
     private EditText txtPassword;
-    private TextView txtResultado;
+    private TextView lblregis;
+
 
 
     String usuario_registrado;
@@ -40,9 +41,19 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin=(Button)findViewById(R.id.btnLogin);
         txtUsuario=(EditText)findViewById(R.id.txtUsuario);
         txtPassword=(EditText)findViewById(R.id.txtPassword);
-        txtResultado=(TextView)findViewById(R.id.txtResultado);
+        lblregis=(TextView)findViewById(R.id.lblregis);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+
+        lblregis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, RegistroActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+       btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
 
@@ -74,8 +85,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else {
                     txtResultado.setText("Login fallido");
-                }
-                */
+                }*/
+
 
                 //TODO desde db.
 
@@ -87,6 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                 //}
             }
         });
+
     }
     //de nuevo
 

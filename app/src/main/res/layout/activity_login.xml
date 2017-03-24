@@ -81,6 +81,17 @@
                         android:text="Login" />
 
                     <TextView
+                        android:id="@+id/lblregis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="¿No tienes una cuenta?, ¡Regístrate! :D"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
                         android:id="@+id/txtResultado"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

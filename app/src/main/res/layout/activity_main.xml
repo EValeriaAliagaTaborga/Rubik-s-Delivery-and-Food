@@ -8,7 +8,7 @@
     android:paddingBottom="16dp"
     android:paddingTop="16dp"
     tools:context="notanamelessentreprise.rubiksdeliveryandfood.MainActivity"
-    android:background="@drawable/backgroundlogo">
+    android:background="@drawable/backgroundlog">
 
     <ScrollView
         android:layout_width="match_parent"
