@@ -1,10 +1,13 @@
 package notanamelessentreprise.rubiksdeliveryandfood;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -198,23 +201,79 @@ public class MenuActivity extends AppCompatActivity {
         lblPrecioTotal.setText(Double.toString(precio) + "0");
 
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(Menu.NONE, opcion1, Menu.NONE, "Perfil");
+        if(MainActivity.getConCuenta()) {
+            menu.add(Menu.NONE, opcion1, Menu.NONE, "Perfil");
+        }
         menu.add(Menu.NONE, opcion2, Menu.NONE, "Informacion de la app");
-        menu.add(Menu.NONE, opcion3, Menu.NONE, "Historial");
-        menu.add(Menu.NONE, opcion4, Menu.NONE, "Log In");
-        menu.add(Menu.NONE, opcion5, Menu.NONE, "Cerrar Sesion");
+        if(MainActivity.getConCuenta()) {
+            menu.add(Menu.NONE, opcion3, Menu.NONE, "Historial");
+        } else {
+            menu.add(Menu.NONE, opcion4, Menu.NONE, "Log In");
+        }
+        if(MainActivity.getConCuenta()) {
+            menu.add(Menu.NONE, opcion5, Menu.NONE, "Cerrar Sesion");
+        }
 
         return true;
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                onBackPressed();break;
+            case opcion5:
+                AlertDialog.Builder Dialogo = new AlertDialog.Builder(
+                        MenuActivity.this);
+
+                Dialogo.setTitle("Atención!");
+                Dialogo.setMessage("¿Seguro que desea cerrar sesión?");
+
+                Dialogo.setPositiveButton("Si",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //cambiar los datos de MisPreferencias como pa q se borre
+
+                                MainActivity.setConCuenta(false);
+                                //Abrimos el archivo de preferencias
+                                SharedPreferences prefs =
+                                        getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+
+                                //Editamos los campos existentes y en este caso borramos la cuenta existente
+                                SharedPreferences.Editor editor = prefs.edit();
+                                editor.putString("usuario", "");
+                                editor.putString("password", "");
+                                //Concretamos la edicion
+                                editor.commit(); //pa guardar
+
+
+                                Intent intent = new Intent(context, MainActivity.class);
+                                finish();
+                                startActivity(intent);
+                            }
+                        });
+                Dialogo.setNegativeButton("No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getApplicationContext(), "Ten mas cuidado con lo que presionas", Toast.LENGTH_SHORT).show();
+                                dialog.cancel();
+                            }
+                        });
+                Dialogo.show();
+
+                break;
+            case opcion4:
+                Intent intent = new Intent(context, LoginActivity.class);
+                intent.putExtra("datos_de_cliente", new String[]{"","","","","","",""});
+                startActivity(intent);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
+
 }

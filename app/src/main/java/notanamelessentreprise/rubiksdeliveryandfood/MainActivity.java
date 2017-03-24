@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         context = this;
 
+        MainActivity.setConCuenta(false);
 
         //si existe una cuenta guardada no entra a la pantalla del logo, directo al menu
         SharedPreferences prefs =
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         if(usuario_almacenado.compareTo("")!=0 && password_almacenado.compareTo("")!=0)
         {
             Intent a=new Intent(getApplicationContext(),MenuPrincipalActivity.class);
+            MainActivity.setConCuenta(true);
             finish();
             startActivity(a);
         }
