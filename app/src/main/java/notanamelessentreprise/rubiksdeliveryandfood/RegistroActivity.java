@@ -35,6 +35,8 @@ public class RegistroActivity extends AppCompatActivity {
     private static final int opcion3 = 3;
     private static final int opcion4 = 4;
     private static final int opcion5 = 5;
+
+    String[] datosDeCliente = new String[8];
     //private SQLiteDatabase db;
  //   public static final int VERSION = 1;
 
@@ -67,24 +69,22 @@ public class RegistroActivity extends AppCompatActivity {
 
         btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               /* ContentValues values = new ContentValues(); //Columnas
-                values.put("nombre",txtNombre.getText().toString());
-                values.put("nombreusuario",txtUsuario.getText().toString());
-                values.put("celulartelefono",txtCelular.getText().toString());
-                values.put("domicilio",txtDomicilio.getText().toString());
-                values.put("email",txtEmail.getText().toString());
-                values.put("contrasenia",txtContrasenia.getText().toString());
-                values.put("repcontrasenia",txtRepContrasenia.getText().toString());
-                values.put("nombrefactura",txtNombreFactura.getText().toString());
-                values.put("nit",txtNIT.getText().toString());
-*/
 
-              //  db.insert("rubik", null, values); // Tabla rubik -> columnas
-                //db.close();
-                if(txtContrasenia.getText().toString().equals(txtRepContrasenia.getText().toString())) {
+                datosDeCliente[0] = txtNombre.getText().toString();
+                datosDeCliente[1] = txtUsuario.getText().toString();
+                datosDeCliente[2] = txtCelular.getText().toString();
+                datosDeCliente[3] = txtDomicilio.getText().toString();
+                datosDeCliente[4] = txtEmail.getText().toString();
+                datosDeCliente[5] = txtNombreFactura.getText().toString();
+                datosDeCliente[7] = txtNIT.getText().toString();
+
+                if(txtContrasenia.getText().toString().compareTo(txtRepContrasenia.getText().toString()) == 0 && datosDeCliente[1].compareTo("") != 0 &&
+                        datosDeCliente[0].compareTo("") != 0 && (datosDeCliente[2].length() == 7 || datosDeCliente[2].length() == 8) &&
+                        datosDeCliente[4].contains("@") && datosDeCliente[4].contains(".")) {
                     String[] str = {txtNombre.getText().toString(), txtUsuario.getText().toString(), txtContrasenia.getText().toString(), txtDomicilio.getText().toString(),
                             txtEmail.getText().toString(), txtCelular.getText().toString(), txtNombreFactura.getText().toString(), txtNIT.getText().toString()
                     };
+
 
                     Usuario usuario = new Usuario(str);
                     baseDeDatos.guardarUsuario(usuario);
@@ -92,7 +92,9 @@ public class RegistroActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), "Registro Agregado", Toast.LENGTH_SHORT).show();
                     reiniciarActividad();
-                }
+                } else {
+                        Toast.makeText(context, "Debe llenar los campos obligatoios (*) correctamente", Toast.LENGTH_SHORT).show();
+                    }
             }
         });
 
