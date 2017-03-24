@@ -20,11 +20,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorBlue"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
+        android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
-        android:layout_marginLeft="12dp"/>
+        android:background="@color/colorAccent"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
 
     <TextView
         android:id="@+id/lblPrecioTotalP"
@@ -42,12 +42,12 @@
         android:id="@+id/btnimgAnadirPedidoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/tlbVerOrdenP"
+        android:layout_alignEnd="@+id/tlbVerOrdenP"
         android:layout_marginEnd="13dp"
         android:clickable="true"
         app:fabSize="mini"
-        app:srcCompat="@android:color/background_dark"
-        android:layout_above="@+id/tlbVerOrdenP"
-        android:layout_alignEnd="@+id/tlbVerOrdenP" />
+        app:srcCompat="@drawable/rubik2" />
 
     <TextView
         android:id="@+id/lblVerOrdenP"

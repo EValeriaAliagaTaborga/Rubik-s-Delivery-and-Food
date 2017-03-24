@@ -29,18 +29,20 @@
         <activity android:name=".MenuPolloActivity" />
         <activity android:name=".MenuExtrasActivity" />
         <activity android:name=".VistaDeDetalleActivity" />
-        <activity android:name=".LoginActivity"
-            android:label="Login"/>
+        <activity
+            android:name=".LoginActivity"
+            android:label="Login" />
         <activity android:name=".ContactenosActivity" />
         <activity android:name=".PerfilActivity" />
-        <activity android:name=".CalculadoraActivity"/>
+        <activity android:name=".CalculadoraActivity" />
         <activity android:name=".ArmaloHamburguesaActivity" />
         <activity android:name=".ArmaloPizzaActivity" />
         <activity android:name=".ArmaloHotDogActivity" />
-        <activity android:name=".RegistroActivity"
-            android:label="Registro de Usuario"/>
-        <activity android:name=".VerOrdenActivity"></activity>
-
+        <activity
+            android:name=".RegistroActivity"
+            android:label="Registro de Usuario" />
+        <activity android:name=".VerOrdenActivity" />
+        <activity android:name=".VideoActivity"></activity>
     </application>
 
 </manifest>

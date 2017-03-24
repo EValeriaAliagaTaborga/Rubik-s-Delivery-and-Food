@@ -189,18 +189,6 @@ public class MenuActivity extends AppCompatActivity {
 
         lblPrecioTotal.setText(Double.toString(precio) + "0");
 
-        //SLIDE CON VIEWPAGER
-        //viewPager = (ViewPager)findViewById(R.id.viewPager);
-        //ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
-        //viewPager.setAdapter(viewPagerAdapter);
-        //viewPager.setOnClickListener(new View.OnClickListener() {
-        //    public void onClick(View v)
-        //    {
-        //        Toast.makeText(getApplicationContext(), "Notificación Toast", Toast.LENGTH_LONG);
-        //    }
-        //});
-
-
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

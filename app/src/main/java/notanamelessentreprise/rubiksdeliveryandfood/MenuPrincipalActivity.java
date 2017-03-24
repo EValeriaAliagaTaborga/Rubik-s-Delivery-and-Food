@@ -88,7 +88,8 @@ public class MenuPrincipalActivity extends AppCompatActivity {
         lyvVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(context, VideoActivity.class);
+                startActivity(intent);
             }
 
         });
