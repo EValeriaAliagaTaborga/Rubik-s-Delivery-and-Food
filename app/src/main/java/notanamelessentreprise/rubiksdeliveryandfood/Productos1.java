@@ -6,6 +6,9 @@ public class Productos1 {
     private String pNombre;
     private ArrayList<SubCategoria> mSubCategoriaList;
 
+    private boolean checked = false;
+    private float precio = 0;
+
     public Productos1(String pNombre, ArrayList<SubCategoria> mSubCategoriaList){
         super();
         this.pNombre = pNombre;
@@ -55,7 +58,7 @@ public class Productos1 {
 
         public static class ItemList{
             private String itemNombre;
-            private String itemPrecio;
+            public String itemPrecio;
 
             public ItemList(String itemNombre, String itemPrecio){
                 super();
@@ -76,4 +79,11 @@ public class Productos1 {
             }
         }
     }
+
+    public boolean getChecked() {return checked;}
+   /* public float getPrecio() {
+    return precio;
+}*/
+
+
 }
