@@ -40,9 +40,9 @@ public class ProductosExtrasAdapter extends ArrayAdapter<Productos1> {
         precioTotal = precioTotal1;
     }
 
-    public ProductosExtrasAdapter(Context context, List<Productos1> objects, TextView lblPrecioTotal) {
+    public ProductosExtrasAdapter(Context context, List<Productos1> objects) {
         super(context, 0, objects);
-        this.lblPrecioTotal = lblPrecioTotal;
+//        this.lblPrecioTotal = lblPrecioTotal;
         precioTotal = MenuActivity.getPrecio();
     }
 
