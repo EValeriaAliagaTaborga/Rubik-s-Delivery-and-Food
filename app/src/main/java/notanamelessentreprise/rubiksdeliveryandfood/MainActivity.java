@@ -2,6 +2,7 @@ package notanamelessentreprise.rubiksdeliveryandfood;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         context = this;
+
+
+        //si existe una cuenta guardada no entra a la pantalla del logo, directo al menu
+        SharedPreferences prefs =
+                getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+        String usuario_almacenado = prefs.getString("usuario","");
+        String password_almacenado = prefs.getString("password","");
+
+        if(usuario_almacenado.compareTo("")!=0 && password_almacenado.compareTo("")!=0)
+        {
+            Intent a=new Intent(getApplicationContext(),MenuPrincipalActivity.class);
+            finish();
+            startActivity(a);
+        }
 
         imgLogo=(ImageView) findViewById(R.id.imgLogo);
         btnSignIn=(Button)findViewById(R.id.btnSignIn);

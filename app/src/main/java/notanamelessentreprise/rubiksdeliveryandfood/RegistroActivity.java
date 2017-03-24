@@ -26,6 +26,9 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText txtNombreFactura;
     private EditText txtNIT;
     private Button btnRegistrarse;
+    private SQLiteDatabase db;
+    public static final int VERSION = 1;
+    private BaseDeDatos baseDeDatos;
 
     private static final int opcion1= 1;
     private static final int opcion2 = 2;
@@ -44,6 +47,8 @@ public class RegistroActivity extends AppCompatActivity {
 
         context = this;
 
+        baseDeDatos = new BaseDeDatos(context,VERSION);
+        db = baseDeDatos.getWritableDatabase();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 //        BaseDeDatos crearBD = new BaseDeDatos(context,VERSION);
@@ -62,7 +67,7 @@ public class RegistroActivity extends AppCompatActivity {
 
         btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                ContentValues values = new ContentValues(); //Columnas
+               /* ContentValues values = new ContentValues(); //Columnas
                 values.put("nombre",txtNombre.getText().toString());
                 values.put("nombreusuario",txtUsuario.getText().toString());
                 values.put("celulartelefono",txtCelular.getText().toString());
@@ -72,13 +77,22 @@ public class RegistroActivity extends AppCompatActivity {
                 values.put("repcontrasenia",txtRepContrasenia.getText().toString());
                 values.put("nombrefactura",txtNombreFactura.getText().toString());
                 values.put("nit",txtNIT.getText().toString());
-
+*/
 
               //  db.insert("rubik", null, values); // Tabla rubik -> columnas
                 //db.close();
+                if(txtContrasenia.getText().toString().equals(txtRepContrasenia.getText().toString())) {
+                    String[] str = {txtNombre.getText().toString(), txtUsuario.getText().toString(), txtContrasenia.getText().toString(), txtDomicilio.getText().toString(),
+                            txtEmail.getText().toString(), txtCelular.getText().toString(), txtNombreFactura.getText().toString(), txtNIT.getText().toString()
+                    };
 
-                Toast.makeText(getApplicationContext(), "Registro Agregado", Toast.LENGTH_SHORT).show();
-                reiniciarActividad();
+                    Usuario usuario = new Usuario(str);
+                    baseDeDatos.guardarUsuario(usuario);
+                    db.close();
+
+                    Toast.makeText(getApplicationContext(), "Registro Agregado", Toast.LENGTH_SHORT).show();
+                    reiniciarActividad();
+                }
             }
         });
 

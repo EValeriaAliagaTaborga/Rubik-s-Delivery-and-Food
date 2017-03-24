@@ -13,21 +13,19 @@ import static android.R.attr.name;
  * Created by Valeria on 23/03/2017.
  */
 
-//public class BaseDeDatos extends SQLiteOpenHelper {
+public class BaseDeDatos extends SQLiteOpenHelper {
 
-   /* public static final String NOMBREBD = "base_de_datos.db";
+    public static final String NOMBREBD = "base_de_datos.db";
 
     //Versión de la base de datos
-    public static final int VERSION = 1;
+    //   public static final int VERSION = 1;
 
-    public BaseDeDatos(Context context) {
+    public BaseDeDatos(Context context, int VERSION) {
         super(context, NOMBREBD, null, VERSION);
     }
 
     //Método utilizado cuando se crea la base de datos.
-    public void onCreate(SQLiteDatabase db)
-    {
-      /*  mockData(db);
+    public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + UsuariosContract.UsuarioEntry.TABLE_NAME + " ("
                 + UsuariosContract.UsuarioEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + UsuariosContract.UsuarioEntry.NAME + " TEXT NOT NULL,"
@@ -54,7 +52,7 @@ import static android.R.attr.name;
         values.put(UsuariosContract.UsuarioEntry.NIT, "3335952");
 
         // Insertar...
-        db.insert(UsuariosContract.UsuarioEntry.TABLE_NAME, null, values);*/
+        db.insert(UsuariosContract.UsuarioEntry.TABLE_NAME, null, values);
 
 
 
@@ -70,12 +68,10 @@ import static android.R.attr.name;
         /*ContentValues producto1=new ContentValues();
         producto1.put("nombre","Hamburgues de pinia");
         db.insert("productos",null,producto1);*/
+    }
 
-   // }
-
-  /*  //Método utilizado cuando se actualiza la base de datos
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
-    {
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
 
@@ -88,53 +84,5 @@ import static android.R.attr.name;
                 usuario.toContentValues());
 
     }
+}
 
-
-
-    public static boolean CheckIsDataAlreadyInDBorNot(SQLiteDatabase sqldb, String TableName,
-                                                      String dbfield, String fieldValue) {
-        //SQLiteDatabase sqldb = EGLifeStyleApplication.sqLiteDatabase;
-        String Query = "Select * from " + TableName + " where " + dbfield + " = " + fieldValue;
-        Cursor cursor = sqldb.rawQuery(Query, null);
-        if(cursor.getCount() <= 0){
-            return false;
-        }
-        return true;
-    }
-    @Override
-
-    private void mockData(SQLiteDatabase sqLiteDatabase) {
-        mockLawyer(sqLiteDatabase, new Usuario("Carlos Perez", "Abogado penalista",
-                "300 200 1111", "Gran profesional con experiencia de 5 años en casos penales.",
-                "carlos_perez.jpg","","",""));
-        mockLawyer(sqLiteDatabase, new Usuario("Daniel Samper", "Abogado accidentes de tráfico",
-                "300 200 2222", "Gran profesional con experiencia de 5 años en accidentes de tráfico.",
-                "daniel_samper.jpg","","",""));
-        mockLawyer(sqLiteDatabase, new Usuario("Lucia Aristizabal", "Abogado de derechos laborales",
-                "300 200 3333", "Gran profesional con más de 3 años de experiencia en defensa de los trabajadores.",
-                "lucia_aristizabal.jpg","","",""));
-        mockLawyer(sqLiteDatabase, new Usuario("Marina Acosta", "Abogado de familia",
-                "300 200 4444", "Gran profesional con experiencia de 5 años en casos de familia.",
-                "marina_acosta.jpg","","",""));
-        mockLawyer(sqLiteDatabase, new Usuario("Olga Ortiz", "Abogado de administración pública",
-                "300 200 5555", "Gran profesional con experiencia de 5 años en casos en expedientes de urbanismo.",
-                "olga_ortiz.jpg","","",""));
-        mockLawyer(sqLiteDatabase, new Usuario("Pamela Briger", "Abogado fiscalista",
-                "300 200 6666", "Gran profesional con experiencia de 5 años en casos de derecho financiero",
-                "pamela_briger.jpg","","",""));
-        mockLawyer(sqLiteDatabase, new Usuario("Rodrigo Benavidez", "Abogado Mercantilista",
-                "300 200 1111", "Gran profesional con experiencia de 5 años en redacción de contratos mercantiles",
-                "rodrigo_benavidez.jpg","","",""));
-        mockLawyer(sqLiteDatabase, new Usuario("Tom Bonz", "Abogado penalista",
-                "300 200 1111", "Gran profesional con experiencia de 5 años en casos penales.",
-                "tom_bonz.jpg","","",""));
-    }
-
-    public long mockLawyer(SQLiteDatabase db, Usuario usuario) {
-        return db.insert(
-                UsuariosContract.UsuarioEntry.TABLE_NAME,
-                null,
-                usuario.toContentValues());
-    }*/
-
-//}

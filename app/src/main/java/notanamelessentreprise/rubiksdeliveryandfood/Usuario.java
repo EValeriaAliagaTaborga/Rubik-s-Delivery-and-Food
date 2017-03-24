@@ -18,15 +18,15 @@ public class Usuario {
     private String nit;
 
 
-    public Usuario(String nombre, String nombreUsuario, String contrasenia, String domicilio, String email, String numeroCelularTelefono, String nombreFactura, String nit) {
-        this.nombre = nombre;
-        this.nombreUsuario = nombreUsuario;
-        this.contrasenia = contrasenia;
-        this.domicilio = domicilio;
-        this.email = email;
-        this.numeroCelularTelefono = numeroCelularTelefono;
-        this.nombreFactura = nombreFactura;
-        this.nit = nit;
+    public Usuario(String [] usuario) {
+        this.nombre = usuario[0];
+        this.nombreUsuario = usuario[1];
+        this.contrasenia = usuario[2];
+        this.domicilio = usuario[3];
+        this.email = usuario[4];
+        this.numeroCelularTelefono = usuario[5];
+        this.nombreFactura = usuario[6];
+        this.nit = usuario[7];
     }
 
     public String getNombre() {
