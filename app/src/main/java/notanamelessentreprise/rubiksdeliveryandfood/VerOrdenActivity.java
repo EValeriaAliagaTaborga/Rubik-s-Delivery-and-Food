@@ -58,7 +58,7 @@ public class VerOrdenActivity extends AppCompatActivity {
         btnConfirmarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, RegistroActivity.class);
+                Intent intent = new Intent(context, GraciasActivity.class);
                 startActivity(intent);
             }
         });
