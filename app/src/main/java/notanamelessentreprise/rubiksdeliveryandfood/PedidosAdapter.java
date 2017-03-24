@@ -60,8 +60,8 @@ public class PedidosAdapter extends ArrayAdapter<Productos> {
         imgbtnMas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int cantidadDeRepPedidos = Integer.parseInt(lblCantidadRepPedido.toString())+1;
-                lblCantidadRepPedido.setText(cantidadDeRepPedidos);
+                //int cantidadDeRepPedidos = Integer.parseInt(lblCantidadRepPedido.toString())+1;
+                //lblCantidadRepPedido.setText(cantidadDeRepPedidos);
                // double nuevoPrecio = cantidadDeRepPedidos*p.getPrecio();
                 //MenuActivity.setPrecio(nuevoPrecio);
                 //lblPrecioPedido.setText("Bs. "+Double.toString(nuevoPrecio)+"0");
