@@ -104,31 +104,31 @@ public class ArmaloPizzaActivity extends AppCompatActivity {
                         int imagen = R.drawable.btntoppings;
                         switch (contenido) {
                             case "Piña":
-//                                imagen = R.drawable.toppings_pina;
+                                imagen = R.drawable.toppings_pina;
                                 precio += 2;
                                 break;
                             case "Cereza Cherry":
-  //                              imagen = R.drawable.toppings_cherry;
+                               imagen = R.drawable.toppings_cherry;
                                 precio += 3;
                                 break;
                             case "Champiñones":
-    //                            imagen = R.drawable.toppings_champinones;
+                                imagen = R.drawable.toppings_champinones;
                                 precio += 2;
                                 break;
                             case "Pimientos":
-      //                          imagen = R.drawable.toppings_pimientos;
+                                imagen = R.drawable.toppings_pimientos;
                                 precio += 2;
                                 break;
                             case "Brocoli":
-        //                        imagen = R.drawable.toppings_brocoli;
+                                imagen = R.drawable.toppings_brocoli;
                                 precio += 1;
                                 break;
                             case "Tomate":
-          //                      imagen = R.drawable.verduras_tomate;
+                                imagen = R.drawable.verduras_tomate;
                                 precio += 1;
                                 break;
                             case "Aceitunas":
-            //                    imagen = R.drawable.pizza_aceitunas;
+                                imagen = R.drawable.toppings_aceitunas;
                                 precio += 1;
                                 break;
                         }
@@ -168,7 +168,7 @@ public class ArmaloPizzaActivity extends AppCompatActivity {
                                 precio += 1;
                                 break;
                             case "Locoto en polvo":
-//                                imagen = R.drawable.condimentos_locotopolvo;
+                                imagen = R.drawable.condimentos_locotopolvo;
                                 precio += 2;
                                 break;
                         }
@@ -205,27 +205,27 @@ public class ArmaloPizzaActivity extends AppCompatActivity {
                         int imagen = R.drawable.btnotrascarnes;
                         switch (contenido) {
                             case "Carne molida":
-//                                imagen = R.drawable.carne_carnemolida;
+                                imagen = R.drawable.carne_carnemolida;
                                 precio += 10;
                                 break;
                             case "Pepperoni":
-  //                              imagen = R.drawable.otrascarnes_pepperoni;
+                                imagen = R.drawable.otrascarnes_pepperoni;
                                 precio += 5;
                                 break;
                             case "Salchicha":
-    //                            imagen = R.drawable.otrascarnes_salchichas;
+                                imagen = R.drawable.otrascarnes_salchichas;
                                 precio += 5;
                                 break;
                             case "Jamon":
-      //                          imagen = R.drawable.otrascarnes_jamon;
+                                imagen = R.drawable.otrascarnes_jamon;
                                 precio += 6;
                                 break;
                             case "Chorizo":
-        //                        imagen = R.drawable.otrascarnes_chorizo;
+                                imagen = R.drawable.otrascarnes_chorizo;
                                 precio += 10;
                                 break;
                             case "Salami":
-          //                      imagen = R.drawable.otrascarnes_salami;
+                                imagen = R.drawable.otrascarnes_salami;
                                 precio += 15;
                                 break;
                         }
@@ -262,19 +262,19 @@ public class ArmaloPizzaActivity extends AppCompatActivity {
                         int imagen = R.drawable.btnquesos;
                         switch (contenido) {
                             case "Mozarella":
-//                                imagen = R.drawable.queso_mozarella;
+                                imagen = R.drawable.queso_mozzarella;
                                 precio += 40;
                                 break;
                             case "Cheddar":
-  //                              imagen = R.drawable.queso_cheddar;
+                                imagen = R.drawable.queso_cheddar;
                                 precio += 30;
                                 break;
                             case "Gouda":
-    //                            imagen = R.drawable.queso_gouda;
+                                imagen = R.drawable.queso_gouda;
                                 precio += 35;
                                 break;
                             case "Gruyere":
-      //                          imagen = R.drawable.queso_gruyere;
+                                imagen = R.drawable.queso_gruyere;
                                 precio += 30;
                                 break;
                         }
@@ -311,11 +311,11 @@ public class ArmaloPizzaActivity extends AppCompatActivity {
                         int imagen = R.drawable.btnsalsas;
                         switch (contenido) {
                             case "Tomate Tradicional":
-//                                imagen = R.drawable.adherezos_ketchup;
+                                imagen = R.drawable.adherezos_ketchup;
                                 precio += 5;
                                 break;
                             case "Tomate Picante":
-  //                              imagen = R.drawable.adherezos_salsapicante;
+                                imagen = R.drawable.adherezos_salsapicante;
                                 precio += 6;
                                 break;
                         }

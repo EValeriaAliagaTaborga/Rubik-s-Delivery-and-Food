@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.media.Image;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,6 +43,9 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
 
     private double precio = 0.00;
     private TextView lblPrecio;
+    private BaseDeDatos baseDeDatos;
+    private SQLiteDatabase db;
+    public static final int VERSION = 1;
 
     ListView lista;
     String[] ingredientes;
@@ -74,9 +80,12 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
 
         btnfCarrito = (FloatingActionButton) findViewById(R.id.btnfCarrito);
 
+        baseDeDatos = new BaseDeDatos(context, VERSION);
+
         //son pa aniadir las imagenes a medida q se arma
         lyVertical = (LinearLayout) findViewById(R.id.lyVertical);
         lyHorizontalPrincipal = (LinearLayout) findViewById(R.id.lyHorizontalPrincipal);
+
 
 
         lista = (ListView) findViewById(R.id.lista);
@@ -96,6 +105,8 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+
                 ingredientes = getResources().getStringArray(R.array.array_tipos_de_pan);
                 ArrayAdapter<String> adaptador1 = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, ingredientes);
                 lista.setAdapter(adaptador1);
@@ -104,36 +115,53 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> array, View vista, int posicion, long id) {
                         TextView texto = (TextView) vista.findViewById(android.R.id.text1);
                         String contenido = texto.getText().toString();
-                        //        Log.e("Item seleccionado", contenido);
+                        int imagen = R.drawable.pan_tradicional_superior;
+                                Log.e("Item seleccionado", contenido);
+
+                        db = baseDeDatos.getReadableDatabase();
+
+                       /* Cursor ingredienteExistentePrecio = db.rawQuery("SELECT precio FROM ingredientes WHERE nombre ='" +
+                               contenido+ "'", null);
+
+                        Cursor ingredienteExistenteImagen = db.rawQuery("SELECT imagen FROM ingredientes WHERE nombre ='" +
+                                contenido+ "'", null);
+
+                       if(ingredienteExistentePrecio.moveToFirst()) {
+                           precio += Double.parseDouble(ingredienteExistentePrecio.getString(0));
+                      }
+                        if(ingredienteExistenteImagen.moveToFirst()) {
+                            imagen = ingredienteExistenteImagen.getInt(0);
+                            Log.i("imagen", ""+imagen+"");
+                        }*/
 
                         imgIngredienteElegido = new ImageView(context);
                         //primero va width y luego height
                         imgIngredienteElegido.setLayoutParams(layoutImagenes);
                         //guardar contenido como si fuera el nombre de la imagen
-                        int imagen = R.drawable.pan_tradicional_superior;
+
                         switch (contenido) {
                             case "Tradicional":
                                 imagen = R.drawable.pan_tradicional_superior;
                                 precio += 0.5;
                                 break;
                             case "Sin Semillas":
-                                imagen = R.drawable.pan_tradicional_superior;
+                                imagen = R.drawable.pan_sinsemilla_superior;
                                 precio += 1;
                                 break;
                             case "Croissant":
-                                imagen = R.drawable.pan_tradicional_superior;
+                                imagen = R.drawable.pan_croissant_superior;
                                 precio += 1;
                                 break;
                             case "Integral":
-                                imagen = R.drawable.pan_tradicional_superior;
+                                imagen = R.drawable.pan_integral_superior;
                                 precio += 1;
                                 break;
                             case "Tostadas":
-                                imagen = R.drawable.pan_tradicional_superior;
+                                imagen = R.drawable.pan_tostadas_superior;
                                 precio += 1;
                                 break;
                             case "Marraqueta":
-                                imagen = R.drawable.pan_tradicional_superior;
+                                imagen = R.drawable.pan_marraqueta_superior;
                                 precio += 0.5;
                                 break;
                         }
@@ -169,19 +197,19 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
                         int imagen = R.drawable.btnhamres;
                         switch (contenido) {
                             case "8 oz":
-                                imagen = R.drawable.btnhamres;
+                                imagen = R.drawable.carne_res;
                                 precio += 10;
                                 break;
                             case "10 oz":
-                                imagen = R.drawable.btnhamres;
+                                imagen = R.drawable.carne_res;
                                 precio += 15;
                                 break;
                             case "12 oz":
-                                imagen = R.drawable.btnhamres;
+                                imagen = R.drawable.carne_res;
                                 precio += 20;
                                 break;
                             case "15 oz":
-                                imagen = R.drawable.btnhamres;
+                                imagen = R.drawable.carne_res;
                                 precio += 25;
                                 break;
                         }
@@ -218,23 +246,23 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
                         int imagen = R.drawable.btnquesos;
                         switch (contenido) {
                             case "Criollo":
-                                imagen = R.drawable.btnquesos;
+                                imagen = R.drawable.queso_criollo;
                                 precio += 3;
                                 break;
                             case "Americano Tradicional":
-                                imagen = R.drawable.btnquesos;
+                                imagen = R.drawable.queso_americano;
                                 precio += 4;
                                 break;
                             case "Mozarella":
-                                imagen = R.drawable.btnquesos;
+                                imagen = R.drawable.queso_mozzarella;
                                 precio += 4;
                                 break;
                             case "Cheddar":
-                                imagen = R.drawable.btnquesos;
+                                imagen = R.drawable.queso_cheddar;
                                 precio += 5;
                                 break;
                             case "Gouda":
-                                imagen = R.drawable.btnquesos;
+                                imagen = R.drawable.queso_gouda;
                                 precio += 6;
                                 break;
                         }
@@ -271,19 +299,19 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
                         int imagen = R.drawable.btnhampollo;
                         switch (contenido) {
                             case "8 oz":
-                                imagen = R.drawable.btnhampollo;
+                                imagen = R.drawable.carne_pollo;
                                 precio += 10;
                                 break;
                             case "10 oz":
-                                imagen = R.drawable.btnhampollo;
+                                imagen = R.drawable.carne_pollo;
                                 precio += 15;
                                 break;
                             case "12 oz":
-                                imagen = R.drawable.btnhampollo;
+                                imagen = R.drawable.carne_pollo;
                                 precio += 20;
                                 break;
                             case "15 oz":
-                                imagen = R.drawable.btnhampollo;
+                                imagen = R.drawable.carne_pollo;
                                 precio += 25;
                                 break;
                         }
@@ -320,11 +348,11 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
                         int imagen = R.drawable.btnhamveg;
                         switch (contenido) {
                             case "8 oz":
-                                imagen = R.drawable.btnhamveg;
+                                imagen = R.drawable.carne_vegetariana;
                                 precio += 12;
                                 break;
                             case "10 oz":
-                                imagen = R.drawable.btnhamveg;
+                                imagen = R.drawable.carne_vegetariana;
                                 precio += 18;
                                 break;
                         }
@@ -361,23 +389,23 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
                         int imagen = R.drawable.btnverduras;
                         switch (contenido) {
                             case "Tomate":
-                                imagen = R.drawable.btnverduras;
+                                imagen = R.drawable.verduras_tomate;
                                 precio += 1;
                                 break;
                             case "Lechuga":
-                                imagen = R.drawable.btnverduras;
+                                imagen = R.drawable.verduras_lechuga;
                                 precio += 1;
                                 break;
                             case "Cebolla":
-                                imagen = R.drawable.btnverduras;
+                                imagen = R.drawable.verduras_cebolla;
                                 precio += 1;
                                 break;
                             case "Pepinillos":
-                                imagen = R.drawable.btnverduras;
+                                imagen = R.drawable.verduras_pepinillos;
                                 precio += 1;
                                 break;
                             case "Rabanos":
-                                imagen = R.drawable.btnverduras;
+                                imagen = R.drawable.verduras_rabanos;
                                 precio += 1;
                                 break;
                         }
@@ -414,39 +442,39 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
                         int imagen = R.drawable.btnadherezos;
                         switch (contenido) {
                             case "Mayonesa":
-                                imagen = R.drawable.btnadherezos;
+                                imagen = R.drawable.adherezos_mayonesa;
                                 precio += 0.5;
                                 break;
                             case "Ketchup":
-                                imagen = R.drawable.btnadherezos;
+                                imagen = R.drawable.adherezos_ketchup;
                                 precio += 0.5;
                                 break;
                             case "Mostaza":
-                                imagen = R.drawable.btnadherezos;
+                                imagen = R.drawable.adherezos_mostaza;
                                 precio += 0.5;
                                 break;
                             case "Salsa golf":
-                                imagen = R.drawable.btnadherezos;
+                                imagen = R.drawable.adherezos_golf;
                                 precio += 1;
                                 break;
                             case "Barbacoa":
-                                imagen = R.drawable.btnadherezos;
+                                imagen = R.drawable.adherezos_barbacoa;
                                 precio += 3;
                                 break;
                             case "Miel y mostaza":
-                                imagen = R.drawable.btnadherezos;
+                                imagen = R.drawable.adherezos_mielymostaza;
                                 precio += 3;
                                 break;
                             case "Hot mustard":
-                                imagen = R.drawable.btnadherezos;
+                                imagen = R.drawable.adherezos_hotmustard;
                                 precio += 3;
                                 break;
                             case "Salsa picante":
-                                imagen = R.drawable.btnadherezos;
+                                imagen = R.drawable.adherezos_salsapicante;
                                 precio += 3;
                                 break;
                             case "Llajua tradicional":
-                                imagen = R.drawable.btnadherezos;
+                                imagen = R.drawable.adherezos_llajua;
                                 precio += 1;
                                 break;
                         }
@@ -487,7 +515,7 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
                                 precio += 2;
                                 break;
                             case "Revuelto":
-                                imagen = R.drawable.huevo_frito;
+                                imagen = R.drawable.huevo_revuelto;
                                 precio += 2;
                                 break;
                         }
@@ -524,27 +552,27 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
                         int imagen = R.drawable.btnotrascarnes;
                         switch (contenido) {
                             case "Tocino":
-                                imagen = R.drawable.btnotrascarnes;
+                                imagen = R.drawable.otrascarnes_tocino;
                                 precio += 4;
                                 break;
                             case "Jamon":
-                                imagen = R.drawable.btnotrascarnes;
+                                imagen = R.drawable.otrascarnes_jamon;
                                 precio += 3;
                                 break;
                             case "Salami":
-                                imagen = R.drawable.btnotrascarnes;
+                                imagen = R.drawable.otrascarnes_salami;
                                 precio += 6;
                                 break;
                             case "Pepperoni":
-                                imagen = R.drawable.btnotrascarnes;
+                                imagen = R.drawable.otrascarnes_pepperoni;
                                 precio += 5;
                                 break;
                             case "Salchicha":
-                                imagen = R.drawable.btnotrascarnes;
+                                imagen = R.drawable.otrascarnes_salchichas;
                                 precio += 4;
                                 break;
                             case "Chorizo":
-                                imagen = R.drawable.btnotrascarnes;
+                                imagen = R.drawable.otrascarnes_chorizo;
                                 precio += 6;
                                 break;
                         }
@@ -585,23 +613,23 @@ public class ArmaloHamburguesaActivity extends AppCompatActivity {
                                 precio += 0.5;
                                 break;
                             case "Sin Semillas":
-                                imagen = R.drawable.pan_tradicional_inferior;
+                                imagen = R.drawable.pan_sinsemilla_inferior;
                                 precio += 1;
                                 break;
                             case "Croissant":
-                                imagen = R.drawable.pan_tradicional_inferior;
+                                imagen = R.drawable.pan_croissant_inferior;
                                 precio += 1;
                                 break;
                             case "Integral":
-                                imagen = R.drawable.pan_tradicional_inferior;
+                                imagen = R.drawable.pan_integral_inferior;
                                 precio += 1;
                                 break;
                             case "Tostadas":
-                                imagen = R.drawable.pan_tradicional_inferior;
+                                imagen = R.drawable.pan_tostadas_inferior;
                                 precio += 1;
                                 break;
                             case "Marraqueta":
-                                imagen = R.drawable.pan_tradicional_inferior;
+                                imagen = R.drawable.pan_marraqueta_inferior;
                                 precio += 0.5;
                                 break;
                         }

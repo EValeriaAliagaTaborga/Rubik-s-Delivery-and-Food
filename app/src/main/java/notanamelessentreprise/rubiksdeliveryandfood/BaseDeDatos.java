@@ -56,18 +56,51 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
 
 
-        /*db.execSQL("create table rubik (id integer(12) AUTO_INCREMENT not null PRIMARY KEY, nombre varchar(100), " +
-                "nombreusuario varchar(100), celulartelefono integer(8), domicilio varchar(100), email varchar(100)," +
-                " contrasenia varchar(100), repcontrasenia varchar(100), nombrefactura varchar(100), nit integer(100));");
         //TODO agregar tabla productos Vale
-        //db.execSQL("create table productos (......)");
+        db.execSQL("CREATE TABLE " + IngredienteContract.IngredienteEntry.TABLE_NAME + " ("
+                + IngredienteContract.IngredienteEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + IngredienteContract.IngredienteEntry.NAME + " TEXT NOT NULL,"
+                + IngredienteContract.IngredienteEntry.PRECIO + " TEXT NOT NULL,"
+                + IngredienteContract.IngredienteEntry.IMAGEN + " TEXT)");
 
-        Log.d("Todos los tablas: ", "Se crearon las tablas");
-*/
+
         //TODO agregar productos al menos 5 Todos
-        /*ContentValues producto1=new ContentValues();
-        producto1.put("nombre","Hamburgues de pinia");
-        db.insert("productos",null,producto1);*/
+        ContentValues panTradSup=new ContentValues();
+        panTradSup.put("nombre","Tradicional");
+        panTradSup.put("precio",0.5);
+        panTradSup.put("imagen", R.drawable.pan_tradicional_superior);
+        db.insert("ingredientes",null,panTradSup);
+
+        ContentValues panSinSemSup=new ContentValues();
+        panSinSemSup.put("nombre","Sin Semillas");
+        panSinSemSup.put("precio",1);
+        panSinSemSup.put("imagen", R.drawable.pan_sinsemilla_superior);
+        db.insert("ingredientes",null,panSinSemSup);
+
+        ContentValues panCroSup=new ContentValues();
+        panCroSup.put("nombre","Croissant");
+        panCroSup.put("precio",1);
+        panCroSup.put("imagen", R.drawable.pan_croissant_superior);
+        db.insert("ingredientes",null,panCroSup);
+
+        ContentValues panIntSup=new ContentValues();
+        panIntSup.put("nombre","Integral");
+        panIntSup.put("precio",1);
+        panIntSup.put("imagen", R.drawable.pan_integral_superior);
+        db.insert("ingredientes",null,panIntSup);
+
+        ContentValues panTostSup=new ContentValues();
+        panTostSup.put("nombre","Tostado");
+        panTostSup.put("precio",1);
+        panTostSup.put("imagen", R.drawable.pan_tostadas_superior);
+        db.insert("ingredientes",null,panTostSup);
+
+        ContentValues panMarrSup=new ContentValues();
+        panMarrSup.put("nombre","Marraqueta");
+        panMarrSup.put("precio",0.5);
+        panMarrSup.put("imagen", R.drawable.pan_marraqueta_superior);
+        db.insert("ingredientes",null,panMarrSup);
+
     }
 
     @Override
@@ -84,5 +117,16 @@ public class BaseDeDatos extends SQLiteOpenHelper {
                 usuario.toContentValues());
 
     }
+
+/*
+    public long agregarIngrediente(Ingrediente usuario) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        return sqLiteDatabase.insert(
+                UsuariosContract.UsuarioEntry.TABLE_NAME,
+                null,
+                ingrediente.toContentValues());
+
+    }*/
 }
 
