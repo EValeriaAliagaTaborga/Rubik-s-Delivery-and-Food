@@ -42,7 +42,8 @@
             android:name=".RegistroActivity"
             android:label="Registro de Usuario" />
         <activity android:name=".VerOrdenActivity" />
-        <activity android:name=".VideoActivity"></activity>
+        <activity android:name=".VideoActivity" />
+        <activity android:name=".GraciasActivity"></activity>
     </application>
 
 </manifest>
