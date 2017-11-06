@@ -72,14 +72,5 @@ public class VerOrdenActivity extends AppCompatActivity {
 
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(Menu.NONE, opcion1, Menu.NONE, "Perfil");
-        menu.add(Menu.NONE, opcion2, Menu.NONE, "Informacion de la app");
-        menu.add(Menu.NONE, opcion3, Menu.NONE, "Historial");
-        menu.add(Menu.NONE, opcion4, Menu.NONE, "Log In");
-        menu.add(Menu.NONE, opcion5, Menu.NONE, "Cerrar Sesion");
 
-        return true;
-    }
 }

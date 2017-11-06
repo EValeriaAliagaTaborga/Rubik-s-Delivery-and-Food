@@ -78,14 +78,29 @@ public class PerfilActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(Menu.NONE, opcion1, Menu.NONE, "Perfil");
-        menu.add(Menu.NONE, opcion2, Menu.NONE, "Informacion de la app");
-        menu.add(Menu.NONE, opcion3, Menu.NONE, "Historial");
-        menu.add(Menu.NONE, opcion4, Menu.NONE, "Log In");
-        menu.add(Menu.NONE, opcion5, Menu.NONE, "Cerrar Sesion");
 
+        if (MainActivity.getConCuenta()) {
+            menu.add(Menu.NONE, opcion1, Menu.NONE, "Perfil")
+                    .setIcon(android.R.drawable.ic_menu_add);
+            menu.add(Menu.NONE, opcion2, Menu.NONE, "Historial")
+                    .setIcon(android.R.drawable.stat_notify_sdcard_prepare);
+        }
+        menu.add(Menu.NONE, opcion3, Menu.NONE, "Detalles de la app")
+                .setIcon(android.R.drawable.ic_dialog_info);
+
+        if (MainActivity.getConCuenta()) {
+            menu.add(Menu.NONE, opcion4, Menu.NONE, "Cerrar Sesión")
+                    .setIcon(android.R.drawable.ic_dialog_info);
+        } else {
+            menu.add(Menu.NONE, opcion5, Menu.NONE, "Login")
+                    //cambiar esto creo xD
+                    .setIcon(android.R.drawable.ic_dialog_info);
+            Intent intent = new Intent(context, LoginActivity.class);
+            startActivity(intent);
+        }
         return true;
     }
 }
